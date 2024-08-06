@@ -1,18 +1,23 @@
 import React from "react";
-import { UserTemplatee } from "../template/UserTemplate/UserTemplatee";
+import UserTemplate from "../template/UserTemplate/UserTemplate";
 import { useRoutes } from "react-router-dom";
 import PageNotFound from "../components/PageNoutFound/PageNotFound";
+import LoginPage from "../pages/LoginPage";
 const useRouteCustom = () => {
-    const routes = useRoutes(
+    const routes = useRoutes([
         {
             path: "/",
-            element: <UserTemplatee />,
+            element: <UserTemplate />,
         },
         {
-            path: "*",
+            path: "/*",
             element: <PageNotFound />,
-        }
-    );
+        },
+        {
+            path: "/sign-in",
+            element: <LoginPage />,
+        },
+    ]);
     return routes;
 };
 
