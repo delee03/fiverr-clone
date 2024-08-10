@@ -1,7 +1,7 @@
 export function setLocalStorage(key, value) {
-    //chuyển đổi thành chuỗi JSON
-    const stringJson = JSON.stringify(value);
-    localStorage.setItem(key, stringJson);
+    //lưu dữ liệu xuống local
+    const data = typeof value === "string" ? value : JSON.stringify(value);
+    localStorage.setItem(key, data);
 }
 
 export function getLocalStorage(key) {

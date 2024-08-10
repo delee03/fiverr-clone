@@ -1,4 +1,5 @@
 import React from "react";
+import { useContext } from "react";
 import useRouteCustom from "./hooks/useRouteCustom";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,10 +15,11 @@ function App() {
 
     //khi gọi tới thuộc tính trong object truyền trong cặp []
 
-    const showNotification = (content, type) => {
+    //net set default parameter để tránh xung đột lỗi với các component đã dùng trước đó
+    const showNotification = (content, type, duration = 4000) => {
         toast[type](content, {
             position: "top-right",
-            autoClose: 5000,
+            autoClose: duration,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,

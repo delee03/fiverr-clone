@@ -1,17 +1,34 @@
 import React, { useContext } from "react";
 import Lottie from "lottie-react";
-import { useLottie } from "lottie-react";
+
 import signInAnimation from "../assets/animation/loginAnimation.json";
 import InputCustom from "../components/Input/InputCustom";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { path } from "../common/path";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { authService } from "../service/auth.service";
+import { useDispatch } from "react-redux";
 import { setLocalStorage } from "../utils/util";
 import { NotificationContext } from "../App";
+import { getInfoUser } from "../redux/authSlice";
+import useResponsive from "../hooks/useResponsive";
 const LoginPage = () => {
-    const { content, type } = useContext(NotificationContext);
+    const isResponsive = useResponsive({
+        mobile: 576,
+        tablet: 768,
+    });
+
+    console.log(isResponsive);
+
+    //dieu hướng user
+    const navigate = useNavigate();
+
+    //bắn 1 cái action lên cho redux useSelector lấy dữ liệu xuống
+    const dispatch = useDispatch();
+    //lấy dữ liệu từ redux
+
+    const { showNotification } = useContext(NotificationContext);
     //in ra để biết nên bóc tách cái j
     //console.log(context);
 
@@ -34,6 +51,21 @@ const LoginPage = () => {
                         //Bước 1: thực hiện lưu trữ ở local Storage để lấy dữ liệu ko bị F5 mất khi lưu vào redux, useContext
                         //thực hiện setLocalStorage
                         setLocalStorage("userInfo", res.data.content);
+                        //thực hiện dispatch lên redux
+                        dispatch(getInfoUser(res.data.content));
+
+                        //Buoc 2: Thuc hien thong bao va ck huong user
+                        showNotification(
+                            "Đăng nhập thành công, đang chuyển hướng về trang chủ",
+                            "success",
+                            3000
+                        );
+                        //cho delay khoảng 1s trước khi chuyển hướng
+                        setTimeout(() => {
+                            navigate(path.homepage);
+                        }, 1000);
+
+                        //Buoc 3: chuyển hướng user về trang chủ
                     })
                     .catch((err) => {
                         console.log(err + "LỖi khi thực hiện promise");
@@ -52,14 +84,29 @@ const LoginPage = () => {
                     .max(10, "Tối đa 10 kí tự"),
             }),
         });
+
+    // return isResponsive.mobile ? (<InputCustom/>) : ();
+    //single page application
     return (
         <div>
             <div className="container">
-                <div className="loginPage_content flex items-center justify-between h-screen">
-                    <div className="img w-1/2">
+                <div
+                    className={`loginPage_content ${
+                        isResponsive.mobile ? "block" : "flex"
+                    } items-center justify-between h-screen`}
+                >
+                    <div
+                        className={`img ${
+                            isResponsive.mobile ? "w-full" : "w-1/2"
+                        }`}
+                    >
                         <Lottie animationData={signInAnimation} loop={true} />
                     </div>
-                    <div className="form w-1/2 ">
+                    <div
+                        className={`form ${
+                            isResponsive.mobile ? "w-full mt-10" : "w-1/2"
+                        }`}
+                    >
                         <form
                             action=""
                             className="space-y-5"
@@ -125,3 +172,5 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+
+//lưu trữ lên redux buổi t5 lấy về header sử dụng
