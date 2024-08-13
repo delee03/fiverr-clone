@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 import LogoIcon from "../Icon/LogoIcon";
 import { Link } from "react-router-dom";
 import { path } from "../../common/path";
@@ -7,31 +7,61 @@ import { DownOutlined } from "@ant-design/icons";
 import { Dropdown, Space } from "antd";
 
 import { useSelector } from "react-redux";
+import UserIcon from "../Icon/UserIcon";
+import LogoutIcon from "../Icon/LogoutIcon";
+import FormSearchProduct from "../Form/FormSearchProduct";
+
+import WrapperSuggestJob from "../Wrapper/WrapperSuggestJob";
+const items = [
+    {
+        label: (
+            <Link className="flex space-x-2 items-center">
+                <UserIcon />
+                <span>Thông tin cá nhân</span>
+            </Link>
+        ),
+        key: "0",
+    },
+    {
+        label: (
+            <Link className="flex space-x-2 items-center">
+                <LogoutIcon />
+                <span>Đăng xuất</span>
+            </Link>
+        ),
+        key: "1",
+    },
+];
 
 const UserHeader = () => {
-    const items = [
-        {
-            label: <a href="https://www.antgroup.com">1st menu item</a>,
-            key: "0",
-        },
-        {
-            label: <a href="https://www.aliyun.com">2nd menu item</a>,
-            key: "1",
-        },
-        {
-            type: "divider",
-        },
-    ];
+    // const items = [
+    //     {
+    //         label: (
+    //             <Link className="flex my-2  items-center space-x-2">
+    //                 <UserIcon /> <span>Thông tin cá nhân</span>
+    //             </Link>
+    //         ),
+    //         key: "0",
+    //     },
+    //     {
+    //         label: (
+    //             <Link className="flex my-2  items-center space-x-2">
+    //                 <LogoutIcon /> <span>Đăng xuất</span>
+    //             </Link>
+    //         ),
+    //         key: "0",
+    //     },
+    // ];
 
     const { infoUser } = useSelector((state) => state.authSlice); //state này đại diện cho reducers tại config Store của redux từ đó gọi đến authSlice
     //destructoring từ authSlice lấy infoUser bằng cách useSelector
-    console.log(infoUser);
+    //console.log(infoUser);
     const checkUserLogin = () => {
         //dùng trả về layout
         return infoUser ? (
             <Dropdown menu={{ items }} trigger={["click"]}>
                 <Avatar className="cursor-pointer hover:bg-orange-500 duration-300">
-                    {infoUser.user.name[0]}
+                    {infoUser.user.name.slice(0, 1)}
                 </Avatar>
             </Dropdown>
         ) : (
@@ -54,11 +84,14 @@ const UserHeader = () => {
     return (
         <header>
             <div className="container">
-                <div className="header_content flex items-center justify-between">
-                    <div className="header_logo">
+                <div className="header_content py-8 flex items-center justify-between">
+                    <div className="header_logo flex items-center space-x-5">
                         <Link to={path.homepage}>
                             <LogoIcon />
                         </Link>
+                        <WrapperSuggestJob>
+                            <FormSearchProduct />
+                        </WrapperSuggestJob>
                     </div>
                     <nav className="header_navigate space-x-5">
                         {checkUserLogin()}
