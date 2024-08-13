@@ -8,5 +8,5 @@ export function getLocalStorage(key) {
     //lấy dữ liệu từ local lên
     const dataLocal = localStorage.getItem(key);
     //kiểm tra nếu dữ liệu != null thì parse nó ra object
-    dataLocal ? JSON.parse(dataLocal) : null;
+    return dataLocal ? JSON.parse(dataLocal) : null;
 }
