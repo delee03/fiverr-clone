@@ -8,6 +8,7 @@ import { path } from "../common/path";
 import AdminTemplate from "../template/AdminTemplate/AdminTemplate";
 import AdminLogin from "../pages/AdminLogin/AdminLogin";
 import ManagerUser from "../components/ManagerUser/ManagerUser";
+import WrapperSuggestJob from "../components/Wrapper/WrapperSuggestJob";
 
 const useRouteCustom = () => {
     const routes = useRoutes([

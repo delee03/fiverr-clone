@@ -10,8 +10,8 @@ const WrapperSuggestJob = ({ children }) => {
     const [value, setValue] = useState("");
     const debounceValue = useDebounce(value, 1000);
 
-    const handleGetValueChildren = (valueChildrend) => {
-        setValue(valueChildrend);
+    const handleGetValueChildren = (valueChildren) => {
+        setValue(valueChildren);
     };
     // Clone children và thêm các props cần thiết
     const clonedChildren = React.cloneElement(children, {
