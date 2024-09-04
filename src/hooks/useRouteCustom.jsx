@@ -9,6 +9,7 @@ import AdminTemplate from "../template/AdminTemplate/AdminTemplate";
 import AdminLogin from "../pages/AdminLogin/AdminLogin";
 import ManagerUser from "../components/ManagerUser/ManagerUser";
 import WrapperSuggestJob from "../components/Wrapper/WrapperSuggestJob";
+import SignUpPage from "../pages/SignUpPage";
 
 const useRouteCustom = () => {
     const routes = useRoutes([
@@ -29,6 +30,10 @@ const useRouteCustom = () => {
         {
             path: "/sign-in",
             element: <LoginPage />,
+        },
+        {
+            path: "/sign-up",
+            element: <SignUpPage />,
         },
         {
             path: path.admin,
