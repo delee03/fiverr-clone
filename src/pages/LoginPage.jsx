@@ -53,7 +53,7 @@ const LoginPage = () => {
                         setLocalStorage("userInfo", res.data.content);
                         //thực hiện dispatch lên redux
                         dispatch(getInfoUser(res.data.content));
-
+                        console.log(getInfoUser(res.data.content));
                         //Buoc 2: Thuc hien thong bao va ck huong user
                         showNotification(
                             "Đăng nhập thành công, đang chuyển hướng về trang chủ",
