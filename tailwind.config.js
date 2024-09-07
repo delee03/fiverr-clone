@@ -11,6 +11,9 @@ export default {
                     "2xl": "1300px",
                 },
             },
+            colors: {
+                fiverr: "#404145",
+            },
         },
     },
     plugins: [],

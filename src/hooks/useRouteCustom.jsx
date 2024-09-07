@@ -10,6 +10,7 @@ import AdminLogin from "../pages/AdminLogin/AdminLogin";
 import ManagerUser from "../components/ManagerUser/ManagerUser";
 import WrapperSuggestJob from "../components/Wrapper/WrapperSuggestJob";
 import SignUpPage from "../pages/SignUpPage";
+import ListCongViec from "../components/ListJobsPage/ListCongViec";
 
 const useRouteCustom = () => {
     const routes = useRoutes([
@@ -20,6 +21,10 @@ const useRouteCustom = () => {
                 {
                     path: path.listjob,
                     element: <ListJobPage />,
+                },
+                {
+                    index: true,
+                    element: <ListCongViec />,
                 },
             ],
         },

@@ -1,0 +1,249 @@
+@font-face {
+    font-family: "Macan";
+    src: url("./font/MacanPanWeb-BoldItalic.eot");
+    src: local("Macan Pan Web Bold Italic"), local("MacanPanWeb-BoldItalic"),
+        url("./font/MacanPanWeb-BoldItalic.eot?#iefix")
+            format("embedded-opentype"),
+        url("./font/MacanPanWeb-BoldItalic.woff2") format("woff2"),
+        url("./font/MacanPanWeb-BoldItalic.woff") format("woff"),
+        url("./font/MacanPanWeb-BoldItalic.ttf") format("truetype");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Macan Book";
+    src: url("./font/MacanPanWeb-Book.eot");
+    src: local("Macan Pan Web Book"), local("MacanPanWeb-Book"),
+        url("./font/MacanPanWeb-Book.eot?#iefix") format("embedded-opentype"),
+        url("./font/MacanPanWeb-Book.woff2") format("woff2"),
+        url("./font/MacanPanWeb-Book.woff") format("woff"),
+        url("./font/MacanPanWeb-Book.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Macan";
+    src: url("./font/MacanPanWeb-Bold.eot");
+    src: local("Macan Pan Web Bold"), local("MacanPanWeb-Bold"),
+        url("./font/MacanPanWeb-Bold.eot?#iefix") format("embedded-opentype"),
+        url("./font/MacanPanWeb-Bold.woff2") format("woff2"),
+        url("./font/MacanPanWeb-Bold.woff") format("woff"),
+        url("./font/MacanPanWeb-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Macan";
+    src: url("./font/MacanPanWeb-LightItalic.eot");
+    src: local("Macan Pan Web Light Italic"), local("MacanPanWeb-LightItalic"),
+        url("./font/MacanPanWeb-LightItalic.eot?#iefix")
+            format("embedded-opentype"),
+        url("./font/MacanPanWeb-LightItalic.woff2") format("woff2"),
+        url("./font/MacanPanWeb-LightItalic.woff") format("woff"),
+        url("./font/MacanPanWeb-LightItalic.ttf") format("truetype");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Macan";
+    src: url("./font/MacanPanWeb-ExtralightItalic.eot");
+    src: local("Macan Pan Web Extralight Italic"),
+        local("MacanPanWeb-ExtralightItalic"),
+        url("./font/MacanPanWeb-ExtralightItalic.eot?#iefix")
+            format("embedded-opentype"),
+        url("./font/MacanPanWeb-ExtralightItalic.woff2") format("woff2"),
+        url("./font/MacanPanWeb-ExtralightItalic.woff") format("woff"),
+        url("./font/MacanPanWeb-ExtralightItalic.ttf") format("truetype");
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Macan";
+    src: url("./font/MacanPanWeb-Extrabold.eot");
+    src: local("Macan Pan Web Extrabold"), local("MacanPanWeb-Extrabold"),
+        url("./font/MacanPanWeb-Extrabold.eot?#iefix")
+            format("embedded-opentype"),
+        url("./font/MacanPanWeb-Extrabold.woff2") format("woff2"),
+        url("./font/MacanPanWeb-Extrabold.woff") format("woff"),
+        url("./font/MacanPanWeb-Extrabold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Macan Book";
+    src: url("./font/MacanPanWeb-BookItalic.eot");
+    src: local("Macan Pan Web Book Italic"), local("MacanPanWeb-BookItalic"),
+        url("./font/MacanPanWeb-BookItalic.eot?#iefix")
+            format("embedded-opentype"),
+        url("./font/MacanPanWeb-BookItalic.woff2") format("woff2"),
+        url("./font/MacanPanWeb-BookItalic.woff") format("woff"),
+        url("./font/MacanPanWeb-BookItalic.ttf") format("truetype");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Macan";
+    src: url("./font/MacanPanWeb-Light.eot");
+    src: local("Macan Pan Web Light"), local("MacanPanWeb-Light"),
+        url("./font/MacanPanWeb-Light.eot?#iefix") format("embedded-opentype"),
+        url("./font/MacanPanWeb-Light.woff2") format("woff2"),
+        url("./font/MacanPanWeb-Light.woff") format("woff"),
+        url("./font/MacanPanWeb-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Macan";
+    src: url("./font/MacanPanWeb-ExtraboldItalic.eot");
+    src: local("Macan Pan Web Extrabold Italic"),
+        local("MacanPanWeb-ExtraboldItalic"),
+        url("./font/MacanPanWeb-ExtraboldItalic.eot?#iefix")
+            format("embedded-opentype"),
+        url("./font/MacanPanWeb-ExtraboldItalic.woff2") format("woff2"),
+        url("./font/MacanPanWeb-ExtraboldItalic.woff") format("woff"),
+        url("./font/MacanPanWeb-ExtraboldItalic.ttf") format("truetype");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Macan";
+    src: url("./font/MacanPanWeb-Extralight.eot");
+    src: local("Macan Pan Web Extralight"), local("MacanPanWeb-Extralight"),
+        url("./font/MacanPanWeb-Extralight.eot?#iefix")
+            format("embedded-opentype"),
+        url("./font/MacanPanWeb-Extralight.woff2") format("woff2"),
+        url("./font/MacanPanWeb-Extralight.woff") format("woff"),
+        url("./font/MacanPanWeb-Extralight.ttf") format("truetype");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Macan";
+    src: url("./font/MacanPanWeb-Regular.eot");
+    src: local("Macan Pan Web Regular"), local("MacanPanWeb-Regular"),
+        url("./font/MacanPanWeb-Regular.eot?#iefix") format("embedded-opentype"),
+        url("./font/MacanPanWeb-Regular.woff2") format("woff2"),
+        url("./font/MacanPanWeb-Regular.woff") format("woff"),
+        url("./font/MacanPanWeb-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Macan";
+    src: url("./font/MacanPanWeb-Medium.eot");
+    src: local("Macan Pan Web Medium"), local("MacanPanWeb-Medium"),
+        url("./font/MacanPanWeb-Medium.eot?#iefix") format("embedded-opentype"),
+        url("./font/MacanPanWeb-Medium.woff2") format("woff2"),
+        url("./font/MacanPanWeb-Medium.woff") format("woff"),
+        url("./font/MacanPanWeb-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Macan";
+    src: url("./font/MacanPanWeb-MediumItalic.eot");
+    src: local("Macan Pan Web Medium Italic"), local("MacanPanWeb-MediumItalic"),
+        url("./font/MacanPanWeb-MediumItalic.eot?#iefix")
+            format("embedded-opentype"),
+        url("./font/MacanPanWeb-MediumItalic.woff2") format("woff2"),
+        url("./font/MacanPanWeb-MediumItalic.woff") format("woff"),
+        url("./font/MacanPanWeb-MediumItalic.ttf") format("truetype");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Macan";
+    src: url("./font/MacanPanWeb-Semibold.eot");
+    src: local("Macan Pan Web Semibold"), local("MacanPanWeb-Semibold"),
+        url("./font/MacanPanWeb-Semibold.eot?#iefix")
+            format("embedded-opentype"),
+        url("./font/MacanPanWeb-Semibold.woff2") format("woff2"),
+        url("./font/MacanPanWeb-Semibold.woff") format("woff"),
+        url("./font/MacanPanWeb-Semibold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Macan";
+    src: url("./font/MacanPanWeb-SemiboldItalic.eot");
+    src: local("Macan Pan Web Semibold Italic"),
+        local("MacanPanWeb-SemiboldItalic"),
+        url("./font/MacanPanWeb-SemiboldItalic.eot?#iefix")
+            format("embedded-opentype"),
+        url("./font/MacanPanWeb-SemiboldItalic.woff2") format("woff2"),
+        url("./font/MacanPanWeb-SemiboldItalic.woff") format("woff"),
+        url("./font/MacanPanWeb-SemiboldItalic.ttf") format("truetype");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Macan";
+    src: url("./font/MacanPanWeb-ThinItalic.eot");
+    src: local("Macan Pan Web Thin Italic"), local("MacanPanWeb-ThinItalic"),
+        url("./font/MacanPanWeb-ThinItalic.eot?#iefix")
+            format("embedded-opentype"),
+        url("./font/MacanPanWeb-ThinItalic.woff2") format("woff2"),
+        url("./font/MacanPanWeb-ThinItalic.woff") format("woff"),
+        url("./font/MacanPanWeb-ThinItalic.ttf") format("truetype");
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Macan";
+    src: url("./font/MacanPanWeb-Thin.eot");
+    src: local("Macan Pan Web Thin"), local("MacanPanWeb-Thin"),
+        url("./font/MacanPanWeb-Thin.eot?#iefix") format("embedded-opentype"),
+        url("./font/MacanPanWeb-Thin.woff2") format("woff2"),
+        url("./font/MacanPanWeb-Thin.woff") format("woff"),
+        url("./font/MacanPanWeb-Thin.ttf") format("truetype");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Macan";
+    src: url("./font/MacanPanWeb-RegularItalic.eot");
+    src: local("Macan Pan Web Regular Italic"),
+        local("MacanPanWeb-RegularItalic"),
+        url("./font/MacanPanWeb-RegularItalic.eot?#iefix")
+            format("embedded-opentype"),
+        url("./font/MacanPanWeb-RegularItalic.woff2") format("woff2"),
+        url("./font/MacanPanWeb-RegularItalic.woff") format("woff"),
+        url("./font/MacanPanWeb-RegularItalic.ttf") format("truetype");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
