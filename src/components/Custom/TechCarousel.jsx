@@ -14,7 +14,7 @@ export default function TechCarousel() {
     return (
         <>
             <Swiper
-                slidesPerView={5}
+                slidesPerView={5.5}
                 spaceBetween={30}
                 navigation={true}
                 modules={[Navigation]}

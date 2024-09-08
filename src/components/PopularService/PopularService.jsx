@@ -57,15 +57,34 @@ const PopularService = () => {
                 "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156479/voice-over.png",
             mauNen: "bg-yellow-500",
         },
+        {
+            idCV: 1594,
+            hinhAnh:
+                "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156474/e-commerce.png",
+            mauNen: "bg-green-500",
+        },
+        {
+            idCV: 1595,
+            hinhAnh:
+                "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156495/data-science.png",
+            mauNen: "bg-red-500",
+        },
+        {
+            idCV: 1596,
+            hinhAnh:
+                "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156481/product-photography.png",
+            mauNen: "bg-violet-500",
+        },
+        {
+            idCV: 1597,
+            hinhAnh:
+                "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156488/seo.png",
+            mauNen: "bg-yellow-500",
+        },
     ];
     function checkIdLoai(id) {
         const foundItem = arrHinhAnhLoaiCV.find((item) => item.idCV === id);
-        if (foundItem) {
-            //  console.log(foundItem);
-            const { hinhAnh, mauNen } = foundItem;
-            // Use hinhAnh and mauNen here
-            return { hinhAnh, mauNen };
-        }
+        return foundItem || null;
     }
 
     return (
@@ -102,7 +121,7 @@ const PopularService = () => {
                     }}
                 >
                     {dsLoaiCV.map((item, index) => {
-                        const { hinhAnh, mauNen } = checkIdLoai(item.id);
+                        const { hinhAnh, mauNen } = checkIdLoai(item.id) || {};
                         return (
                             <SwiperSlide
                                 key={index}
@@ -121,8 +140,8 @@ const PopularService = () => {
                             </SwiperSlide>
                         );
                     })}
-                    {dsLoaiCV.map((item, index) => {
-                        const { hinhAnh, mauNen } = checkIdLoai(item.id);
+                    {/* {dsLoaiCV.map((item, index) => {
+                        const { hinhAnh, mauNen } = checkIdLoai(item.id) || {};
                         return (
                             <SwiperSlide
                                 key={index}
@@ -140,7 +159,7 @@ const PopularService = () => {
                                 </Link>
                             </SwiperSlide>
                         );
-                    })}
+                    })} */}
                 </Swiper>
             </div>
         </div>
