@@ -11,9 +11,14 @@ import "swiper/css/autoplay";
 // import required modules
 import { Pagination, Scrollbar, EffectFade, Autoplay } from "swiper/modules";
 import ListCongViec from "../ListJobsPage/ListCongViec";
+import SpinnerCustom from "../Custom/SpinnerCustom";
+import { Spin } from "antd";
 
 const PopularService = () => {
     const [dsLoaiCV, setdsLoaiCV] = useState([]);
+
+    const [ChuyenHuong, setChuyenHuong] = useState(false);
+
     useEffect(() => {
         loaiCongViecService
             .getLoaiCongViec()
@@ -91,7 +96,7 @@ const PopularService = () => {
         <div>
             <div className="container">
                 <h2 className="title-heading">Popular services</h2>
-
+                {/* <SpinnerCustom /> */}
                 <Swiper
                     loop
                     slidesPerView={1}
@@ -122,12 +127,20 @@ const PopularService = () => {
                 >
                     {dsLoaiCV.map((item, index) => {
                         const { hinhAnh, mauNen } = checkIdLoai(item.id) || {};
+
                         return (
                             <SwiperSlide
                                 key={index}
                                 className={` item pt-4 px-2 pb-2 min-h-64 w-56 rounded-2xl ${mauNen}`}
                             >
-                                <Link to="/list-cv">
+                                <Link
+                                    onClick={() => {
+                                        setChuyenHuong(true);
+                                        setTimeout(() => {
+                                            window.location.href = "/list-cv";
+                                        }, 2000);
+                                    }}
+                                >
                                     <h3 className="text-white text-lg font-semibold py-8  ms-2">
                                         {item.tenLoaiCongViec}
                                     </h3>
@@ -161,6 +174,7 @@ const PopularService = () => {
                         );
                     })} */}
                 </Swiper>
+                {ChuyenHuong && <SpinnerCustom />}
             </div>
         </div>
     );

@@ -18,7 +18,7 @@ const BreadCrumCustom = ({ breadcrum, title }) => {
                 <span className="text-sm hover:underline">/ {breadcrum}</span>
             </div>
             <h2 className="mt-5 mb-2 font-bold text-3xl text-left">{title}</h2>
-            <div className="flex items-center gap-2 mb-5">
+            <div className="flex items-center gap-2 mb-5 -mt-2">
                 <p className="text-gray-600">
                     Create, build, and develop your website with skilled website
                     developers |
@@ -26,8 +26,8 @@ const BreadCrumCustom = ({ breadcrum, title }) => {
                 <button className="flex items-center gap-2 text-sm border-none py-1 px-3 bg-white hover:rounded-xl hover:bg-gray-300">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="1em"
-                        height="1em"
+                        width="1.2em"
+                        height="1.2em"
                         viewBox="0 0 24 24"
                     >
                         <path
@@ -35,7 +35,9 @@ const BreadCrumCustom = ({ breadcrum, title }) => {
                             d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2m-2 14.5v-9l6 4.5z"
                         />
                     </svg>
-                    <span>How Fiverr Works</span>
+                    <span className="text-base font-semibold">
+                        How Fiverr Works
+                    </span>
                 </button>
             </div>
         </>

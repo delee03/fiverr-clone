@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Select, Space } from "antd";
 import BreadCrumCustom from "../Custom/BreadCrumCustom";
 import TechCarousel from "../Custom/TechCarousel";
+import NavMenuLoaiCV from "../NavBar/NavMenuLoaiCV";
 
 const ListCongViec = () => {
     const valueAllCongViec = useSelector((state) => state.congViecSlice);
@@ -19,6 +20,7 @@ const ListCongViec = () => {
     return (
         <section>
             <div className="container">
+                <NavMenuLoaiCV />
                 <BreadCrumCustom
                     title={"All jobs fiverr"}
                     breadcrum={"All jobs"}
@@ -69,19 +71,18 @@ const ListCongViec = () => {
                                     />
 
                                     <div>
-                                        <h3 className="font-semibold py-2 min-h-22">
+                                        <h3 className="font-semibold py-2 min-h-24">
                                             {item?.tenCongViec}
                                         </h3>
-                                        <p>
-                                            <span className="text-yellow-400 space-x-2">
-                                                <i className="fa-solid fa-star">
-                                                    {item?.saoCongViec}
-                                                </i>
-                                            </span>
-                                            <span className="text-gray-400">
-                                                {item?.danhGia}
-                                            </span>
-                                        </p>
+
+                                        <span className="text-yellow-400 space-x-2 ">
+                                            <i className="fa-solid fa-star">
+                                                {item?.saoCongViec}
+                                            </i>
+                                        </span>
+                                        <span className="text-gray-800 font-semibold">
+                                            {item?.danhGia}
+                                        </span>
                                     </div>
                                     <div className="mt-2">
                                         <p className="desc-job text-xs">

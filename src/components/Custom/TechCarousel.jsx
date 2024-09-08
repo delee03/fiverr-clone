@@ -18,7 +18,7 @@ export default function TechCarousel() {
                 spaceBetween={30}
                 navigation={true}
                 modules={[Navigation]}
-                className="mySwiper mb-8 pb-10 pt-14 border-b-1 border-gray-200 "
+                className="mySwiper mb-8 -mt-6 pb-10 pt-14 border-b-1 border-gray-200 "
                 style={{ borderBottom: "1px solid #ddd" }}
             >
                 <SwiperSlide>

@@ -2,7 +2,6 @@
 
 import { createSlice } from "@reduxjs/toolkit";
 import { getLocalStorage } from "../utils/util";
-import { getIn } from "formik";
 
 const initialState = {
     infoUser: getLocalStorage("userInfo"),
