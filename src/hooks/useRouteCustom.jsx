@@ -11,6 +11,7 @@ import ManagerUser from "../components/ManagerUser/ManagerUser";
 import WrapperSuggestJob from "../components/Wrapper/WrapperSuggestJob";
 import SignUpPage from "../pages/SignUpPage";
 import ListCongViec from "../components/ListJobsPage/ListCongViec";
+import PopularService from "../components/PopularService/PopularService";
 
 const useRouteCustom = () => {
     const routes = useRoutes([
@@ -23,10 +24,15 @@ const useRouteCustom = () => {
                     element: <ListJobPage />,
                 },
                 {
-                    index: true,
+                    // index: true,
+                    path: path.listcv,
                     element: <ListCongViec />,
                 },
             ],
+        },
+        {
+            path: "/popular-service",
+            element: <PopularService />,
         },
         {
             path: "/*",

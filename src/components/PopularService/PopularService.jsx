@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { loaiCongViecService } from "../../service/loaiCongViec.service";
-import $ from "jquery";
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel/dist/assets/owl.theme.default.css";
-import "owl.carousel";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Link } from "react-router-dom";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
+import "swiper/css/autoplay";
+// import required modules
+import { Pagination, Scrollbar, EffectFade, Autoplay } from "swiper/modules";
+import ListCongViec from "../ListJobsPage/ListCongViec";
 
 const PopularService = () => {
     const [dsLoaiCV, setdsLoaiCV] = useState([]);
@@ -66,26 +73,75 @@ const PopularService = () => {
             <div className="container">
                 <h2 className="title-heading">Popular services</h2>
 
-                <div className=" mt-10  grid grid-flow-col auto-cols-max gap-10  ">
+                <Swiper
+                    loop
+                    slidesPerView={1}
+                    spaceBetween={10}
+                    scrollbar={{ draggable: true }}
+                    modules={[Pagination, Scrollbar, EffectFade, Autoplay]} // Add Autoplay module
+                    className="mySwiper mt-10"
+                    autoplay={{ delay: 1500 }} // Set autoplay delay
+                    onSwiper={(swiper) => console.log(swiper)}
+                    onSlideChange={() => console.log("slide change")}
+                    breakpoints={{
+                        368: {
+                            slidesPerView: 1,
+                        },
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 48,
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
+                        },
+                        1200: {
+                            slidesPerView: 5,
+                            spaceBetween: 30,
+                        },
+                    }}
+                >
                     {dsLoaiCV.map((item, index) => {
                         const { hinhAnh, mauNen } = checkIdLoai(item.id);
                         return (
-                            <div
+                            <SwiperSlide
                                 key={index}
                                 className={` item pt-4 px-2 pb-2 min-h-64 w-56 rounded-2xl ${mauNen}`}
                             >
-                                <h3 className="text-white text-lg font-semibold py-8  ms-2">
-                                    {item.tenLoaiCongViec}
-                                </h3>
-                                <img
-                                    src={hinhAnh || null}
-                                    alt=""
-                                    className="w-full rounded-xl"
-                                />
-                            </div>
+                                <Link to="/list-cv">
+                                    <h3 className="text-white text-lg font-semibold py-8  ms-2">
+                                        {item.tenLoaiCongViec}
+                                    </h3>
+                                    <img
+                                        src={hinhAnh || null}
+                                        alt=""
+                                        className="w-full h-full rounded-xl object-cover"
+                                    />
+                                </Link>
+                            </SwiperSlide>
                         );
                     })}
-                </div>
+                    {dsLoaiCV.map((item, index) => {
+                        const { hinhAnh, mauNen } = checkIdLoai(item.id);
+                        return (
+                            <SwiperSlide
+                                key={index}
+                                className={` item pt-4 px-2 pb-2 min-h-64 w-56 rounded-2xl ${mauNen}`}
+                            >
+                                <Link to="/list-cv">
+                                    <h3 className="text-white text-lg font-semibold py-8  ms-2">
+                                        {item.tenLoaiCongViec}
+                                    </h3>
+                                    <img
+                                        src={hinhAnh || null}
+                                        alt=""
+                                        className="w-full rounded-xl"
+                                    />
+                                </Link>
+                            </SwiperSlide>
+                        );
+                    })}
+                </Swiper>
             </div>
         </div>
     );
