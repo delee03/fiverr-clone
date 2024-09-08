@@ -14,6 +14,9 @@ export default {
             colors: {
                 fiverr: "#404145",
             },
+            border: {
+                1: "1px",
+            },
         },
     },
     plugins: [],

@@ -26,3 +26,29 @@ body {
     overflow: hidden;
     font-weight: 500;
 }
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+    right: 62px !important;
+    left: auto !important;
+}
+
+.swiper-button-prev {
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    top: 30px !important;
+    height: 30px !important;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid #555;
+    width: 30px !important;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    color: #555;
+    font-size: 14px;
+    font-weight: 700;
+}
