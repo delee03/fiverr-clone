@@ -25,7 +25,7 @@ const FormSearchProduct = ({ setOpenDropdown, handleGetValueChildren }) => {
     };
     const handleChange = (event) => {
         setSearch(event.target.value);
-        console.log("tôi là change");
+        // console.log("tôi là change");
     };
 
     return (

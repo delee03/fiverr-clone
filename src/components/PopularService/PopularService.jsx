@@ -98,7 +98,6 @@ const PopularService = () => {
                 <h2 className="title-heading">Popular services</h2>
                 {/* <SpinnerCustom /> */}
                 <Swiper
-                    loop
                     slidesPerView={1}
                     spaceBetween={10}
                     scrollbar={{ draggable: true }}
@@ -174,7 +173,7 @@ const PopularService = () => {
                         );
                     })} */}
                 </Swiper>
-                {ChuyenHuong && <SpinnerCustom />}
+                {ChuyenHuong && <SpinnerCustom title="Đang chuyển hướng" />}
             </div>
         </div>
     );

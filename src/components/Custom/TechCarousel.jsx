@@ -23,7 +23,7 @@ export default function TechCarousel() {
             >
                 <SwiperSlide>
                     <Link to={"/"}>
-                        <div className="flex items-center justify-center py-3  rounded-full border border-slate-300 gap-3 max-h-20 w-full max-w-60">
+                        <div className="flex items-center hover:bg-gray-200 justify-center py-3  rounded-full border border-slate-300 gap-3 max-h-20 w-full max-w-60">
                             <img
                                 src="wordpress.svg"
                                 alt="Wordpress"
@@ -35,7 +35,7 @@ export default function TechCarousel() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <Link to={"/"}>
-                        <div className="flex items-center justify-center py-3  rounded-full border border-slate-300 gap-3 max-h-20 w-full max-w-60">
+                        <div className="flex items-center hover:bg-gray-200 justify-center py-3  rounded-full border border-slate-300 gap-3 max-h-20 w-full max-w-60">
                             <img
                                 src="customwebsite.svg"
                                 alt="Wordpress"
@@ -49,7 +49,7 @@ export default function TechCarousel() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <Link to={"/"}>
-                        <div className="flex items-center justify-center py-3  rounded-full border border-slate-300 gap-3 max-h-20 w-full max-w-60">
+                        <div className="flex items-center hover:bg-gray-200 justify-center py-3  rounded-full border border-slate-300 gap-3 max-h-20 w-full max-w-60">
                             <img
                                 src="shopify.svg"
                                 alt="Wordpress"
@@ -61,7 +61,7 @@ export default function TechCarousel() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <Link to={"/"}>
-                        <div className="flex items-center justify-center py-3  rounded-full border border-slate-300 gap-3 max-h-20 w-full max-w-60">
+                        <div className="flex items-center hover:bg-gray-200 justify-center py-3  rounded-full border border-slate-300 gap-3 max-h-20 w-full max-w-60">
                             <img
                                 src="wix.svg"
                                 alt="Wordpress"
@@ -75,7 +75,7 @@ export default function TechCarousel() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <Link to={"/"}>
-                        <div className="flex items-center justify-center py-3  rounded-full border border-slate-300 gap-3 max-h-20 w-full max-w-60">
+                        <div className="flex items-center hover:bg-gray-200 justify-center py-3  rounded-full border border-slate-300 gap-3 max-h-20 w-full max-w-60">
                             <img
                                 src="webflow.svg"
                                 alt="Wordpress"
@@ -87,7 +87,7 @@ export default function TechCarousel() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <Link to={"/"}>
-                        <div className="flex items-center justify-center py-3  rounded-full border border-slate-300 gap-3 max-h-20 w-full max-w-60">
+                        <div className="flex items-center hover:bg-gray-200 justify-center py-3  rounded-full border border-slate-300 gap-3 max-h-20 w-full max-w-60">
                             <img
                                 src="woocomerce.svg"
                                 alt="Wordpress"
@@ -101,7 +101,7 @@ export default function TechCarousel() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <Link to={"/"}>
-                        <div className="flex items-center justify-center py-3  rounded-full border border-slate-300 gap-3 max-h-20 w-full max-w-60">
+                        <div className="flex items-center hover:bg-gray-200 justify-center py-3  rounded-full border border-slate-300 gap-3 max-h-20 w-full max-w-60">
                             <img
                                 src="squarespace.svg"
                                 alt="Wordpress"
@@ -115,7 +115,7 @@ export default function TechCarousel() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <Link to={"/"}>
-                        <div className="flex items-center justify-center py-3  rounded-full border border-slate-300 gap-3 max-h-20 w-full max-w-60">
+                        <div className="flex items-center hover:bg-gray-200 justify-center py-3  rounded-full border border-slate-300 gap-3 max-h-20 w-full max-w-60">
                             <img
                                 src="otherbuilder.svg"
                                 alt="Wordpress"
@@ -129,7 +129,7 @@ export default function TechCarousel() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <Link to={"/"}>
-                        <div className="flex items-center justify-center py-3  rounded-full border border-slate-300 gap-3 max-h-20 w-full max-w-60">
+                        <div className="flex items-center hover:bg-gray-200 justify-center py-3  rounded-full border border-slate-300 gap-3 max-h-20 w-full max-w-60">
                             <img
                                 src="clickfunnel.svg"
                                 alt="Wordpress"
@@ -143,7 +143,7 @@ export default function TechCarousel() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <Link to={"/"}>
-                        <div className="flex items-center justify-center py-3  rounded-full border border-slate-300 gap-3 max-h-20 w-full max-w-60">
+                        <div className="flex items-center hover:bg-gray-200 justify-center py-3  rounded-full border border-slate-300 gap-3 max-h-20 w-full max-w-60">
                             <img
                                 src="godaddy.svg"
                                 alt="Wordpress"

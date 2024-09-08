@@ -7,18 +7,26 @@ import { Select, Space } from "antd";
 import BreadCrumCustom from "../Custom/BreadCrumCustom";
 import TechCarousel from "../Custom/TechCarousel";
 import NavMenuLoaiCV from "../NavBar/NavMenuLoaiCV";
+import SpinnerCustom from "../Custom/SpinnerCustom";
 
 const ListCongViec = () => {
     const valueAllCongViec = useSelector((state) => state.congViecSlice);
     //console.log(valueAllCongViec.allCongViec);
-
+    const [Loading, setLoading] = useState(true);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getAllCVApi());
-    }, []);
+        const fetchData = async () => {
+            dispatch(getAllCVApi());
+            await new Promise((resolve) => setTimeout(resolve, 1500)); //đợi cho api trả về 1.5s
+            setLoading(false);
+        };
+
+        fetchData();
+    }, [dispatch]);
     return (
         <section>
+            {Loading && <SpinnerCustom title={"Đang lấy dữ liệu"} />}
             <div className="container">
                 <NavMenuLoaiCV />
                 <BreadCrumCustom
@@ -93,7 +101,7 @@ const ListCongViec = () => {
                                     <div className="flex justify-between items-center mt-3">
                                         <i className="fa-solid fa-heart"></i>
                                         <p className="uppercase font-semibold">
-                                            Starting at{" "}
+                                            Starting at
                                             <span>
                                                 $
                                                 {item?.giaTien.toLocaleString()}

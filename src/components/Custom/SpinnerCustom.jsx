@@ -7,9 +7,9 @@ const contentStyle = {
 };
 const content = <div style={contentStyle} />;
 
-const SpinnerCustom = () => (
+const SpinnerCustom = ({ title }) => (
     <Flex gap="middle" vertical>
-        <Spin tip="Đang chuyển hướng" fullscreen="true" size="large">
+        <Spin tip={title} fullscreen="true" size="large">
             {content}
         </Spin>
     </Flex>
