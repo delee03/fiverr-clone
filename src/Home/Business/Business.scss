@@ -1,0 +1,76 @@
+.container {
+    padding: 0 20px;
+    .business {
+        background-color: #003912;
+        border-radius: 12px;
+        padding: 80px 64px;
+        margin: 40px 0;
+
+        .business_item {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-left: -16px;
+            margin-right: -16px;
+
+            .business_left {
+                display: flex;
+                flex-direction: column;
+                color: #fff;
+                padding: 0 16px;
+                max-width: 46.6666666667%;
+
+            .business_img {
+                margin-bottom: 32px;
+                display: flex;
+            }
+
+            h2 {
+                font-size: 46px;
+                letter-spacing: -.03em;
+                line-height: 60px;
+                padding-bottom: 20px;
+                color: #fff;
+                 }
+            p {
+                color: #fff;
+                padding-bottom: 16px;
+                }
+            ul {
+                margin-bottom: 36px;
+                list-style-type: disc;
+                padding-left: 24px;
+            }
+            .business_button {
+                display: flex;
+
+                a {
+                    background-color: #fc832b;
+                    border: 1px solid transparent;
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                    cursor: pointer;
+                    display: inline-block;
+                    font-size: 16px;
+                    font-weight: 600;
+                    line-height: 100%;
+                    padding: 12px 24px;
+                    position: relative;
+                    text-align: center;
+                    text-decoration: none;
+                    &:hover {
+                        background: #e37627;
+                    }
+                }
+            }
+            }
+            .business_right {
+                padding: 0 16px;
+                max-width: 53.3333333333%;
+            }
+
+       
+            }
+         }
+        }
+    

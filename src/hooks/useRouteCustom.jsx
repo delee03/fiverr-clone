@@ -13,6 +13,8 @@ import SignUpPage from "../pages/SignUpPage";
 import ListCongViec from "../components/ListJobsPage/ListCongViec";
 import PopularService from "../components/PopularService/PopularService";
 import NavMenuLoaiCV from "../components/NavBar/NavMenuLoaiCV";
+import Hero from "../Home/Hero/Hero";
+import Home from "../Home/Home";
 
 const useRouteCustom = () => {
     const routes = useRoutes([
