@@ -9,22 +9,24 @@ import About from "./About/About";
 import Market from "./Market/Market";
 import Design from "./Design/Design";
 import Finger from "./Finger/Finger";
+import PopularService from "../components/PopularService/PopularService";
 
 const Home = () => {
-  return (
-    <>
-      <Hero />
-      <Categories />
-      <Card />
-      <Prosper />
-      <Video />
-      <Business />
-      <About />
-      <Market />
-      <Design />
-      <Finger />
-    </>
-  );
+    return (
+        <>
+            <Hero />
+            <Categories />
+            <Card />
+            <PopularService></PopularService>
+            <Prosper />
+            <Video />
+            <Business />
+            <About />
+            <Market />
+            <Design />
+            <Finger />
+        </>
+    );
 };
 
 export default Home;

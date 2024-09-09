@@ -23,6 +23,10 @@ const useRouteCustom = () => {
             element: <UserTemplate />,
             children: [
                 {
+                    index: true,
+                    element: <Home />,
+                },
+                {
                     path: path.listjob,
                     element: <ListJobPage />,
                 },

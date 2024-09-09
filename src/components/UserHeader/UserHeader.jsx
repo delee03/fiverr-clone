@@ -12,45 +12,45 @@ import FormSearchProduct from "../Form/FormSearchProduct";
 import WrapperSuggestJob from "../Wrapper/WrapperSuggestJob";
 import UserIcon from "../Icon/UserIcon";
 const items = [
-  {
-    label: (
-      <Link className="flex space-x-2 items-center">
-        <UserIcon />
-        <span>Thông tin cá nhân</span>
-      </Link>
-    ),
-    key: "0",
-  },
-  {
-    label: (
-      <Link className="flex space-x-2 items-center">
-        <LogoutIcon />
-        <span>Đăng xuất</span>
-      </Link>
-    ),
-    key: "1",
-  },
+    {
+        label: (
+            <Link className="flex space-x-2 items-center">
+                <UserIcon />
+                <span>Thông tin cá nhân</span>
+            </Link>
+        ),
+        key: "0",
+    },
+    {
+        label: (
+            <Link className="flex space-x-2 items-center">
+                <LogoutIcon />
+                <span>Đăng xuất</span>
+            </Link>
+        ),
+        key: "1",
+    },
 ];
 
 const UserHeader = () => {
-  // const items = [
-  //     {
-  //         label: (
-  //             <Link className="flex my-2  items-center space-x-2">
-  //                 <UserIcon /> <span>Thông tin cá nhân</span>
-  //             </Link>
-  //         ),
-  //         key: "0",
-  //     },
-  //     {
-  //         label: (
-  //             <Link className="flex my-2  items-center space-x-2">
-  //                 <LogoutIcon /> <span>Đăng xuất</span>
-  //             </Link>
-  //         ),
-  //         key: "0",
-  //     },
-  // ];
+    // const items = [
+    //     {
+    //         label: (
+    //             <Link className="flex my-2  items-center space-x-2">
+    //                 <UserIcon /> <span>Thông tin cá nhân</span>
+    //             </Link>
+    //         ),
+    //         key: "0",
+    //     },
+    //     {
+    //         label: (
+    //             <Link className="flex my-2  items-center space-x-2">
+    //                 <LogoutIcon /> <span>Đăng xuất</span>
+    //             </Link>
+    //         ),
+    //         key: "0",
+    //     },
+    // ];
 
     const { infoUser } = useSelector((state) => state.authSlice); //state này đại diện cho reducers tại config Store của redux từ đó gọi đến authSlice
     //destructoring từ authSlice lấy user bằng cách useSelector
@@ -99,24 +99,6 @@ const UserHeader = () => {
             </div>
         </header>
     );
-  };
-  return (
-    <header>
-      <div className="container">
-        <div className="header_content py-8 flex items-center justify-between">
-          <div className="header_logo flex items-center space-x-5">
-            <Link to={path.homepage}>
-              <LogoIcon />
-            </Link>
-            <WrapperSuggestJob>
-              <FormSearchProduct />
-            </WrapperSuggestJob>
-          </div>
-          <nav className="header_navigate space-x-5">{checkUserLogin()}</nav>
-        </div>
-      </div>
-    </header>
-  );
 };
 
 export default UserHeader;
