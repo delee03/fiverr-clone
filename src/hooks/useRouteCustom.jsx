@@ -12,6 +12,7 @@ import WrapperSuggestJob from "../components/Wrapper/WrapperSuggestJob";
 import SignUpPage from "../pages/SignUpPage";
 import ListCongViec from "../components/ListJobsPage/ListCongViec";
 import PopularService from "../components/PopularService/PopularService";
+import NavMenuLoaiCV from "../components/NavBar/NavMenuLoaiCV";
 
 const useRouteCustom = () => {
     const routes = useRoutes([
@@ -60,6 +61,10 @@ const useRouteCustom = () => {
         {
             path: "/admin-login",
             element: <AdminLogin />,
+        },
+        {
+            path: "/nav",
+            element: <NavMenuLoaiCV />,
         },
     ]);
     return routes;
