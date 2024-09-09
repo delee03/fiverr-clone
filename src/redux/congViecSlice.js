@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { allCongViecService } from "../service/allCongViec.service";
+import { congViecTheoChiTietLoaiService } from "../service/congViecTheoChiTietLoai.service";
 
 // First, create the thunk
 export const getAllCVApi = createAsyncThunk(
@@ -11,8 +12,21 @@ export const getAllCVApi = createAsyncThunk(
     }
 );
 
+// Thunk to get jobs by detail category
+export const getCVTheoCTLoaiApi = createAsyncThunk(
+    "allCongViec/getCVTheoCTLoaiApi",
+    async (maCTLoai, thunkAPI) => {
+        const response =
+            await congViecTheoChiTietLoaiService.congViecTheoCTLoaiService(
+                maCTLoai
+            );
+        return response.data.content;
+    }
+);
+
 const initialState = {
     allCongViec: [],
+    layCongViecTheoChiTietLoai: [],
 };
 
 const congViecSlice = createSlice({
@@ -22,6 +36,11 @@ const congViecSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(getAllCVApi.fulfilled, (state, action) => {
             state.allCongViec = action.payload;
+            console.log(action);
+        });
+
+        builder.addCase(getCVTheoCTLoaiApi.fulfilled, (state, action) => {
+            state.layCongViecTheoChiTietLoai = action.payload;
             console.log(action);
         });
     },

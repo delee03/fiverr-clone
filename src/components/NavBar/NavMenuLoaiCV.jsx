@@ -4,16 +4,14 @@ import { getMenuLoaiCongViecApi } from "../../redux/layMenuLoaiCongViecSlice";
 import { Dropdown, Menu } from "antd";
 import { Link } from "react-router-dom";
 
-const NavMenuLoaiCV = () => {
-    const [openDropdown, setOpenDropdown] = useState(false);
-    const [items, setItems] = useState([]);
+const NavMenuLoaiCV = ({ handleCheck }) => {
     const [hoveredItemId, setHoveredItemId] = useState(null); // Quản lý ID của mục đang được hover
     const dsMenuLoaiCV = useSelector(
         (state) => state.menuCongViec.arrMenuLoaiCV
     );
     const dispatch = useDispatch();
 
-    console.log(dsMenuLoaiCV);
+    // console.log(dsMenuLoaiCV);
     // console.log(dsMenuLoaiCV.dsNhomChiTietLoai);
     useEffect(() => {
         dispatch(getMenuLoaiCongViecApi());
@@ -27,12 +25,12 @@ const NavMenuLoaiCV = () => {
 
     function getDsNhomCTLoaiByIdLoai(id) {
         for (let item of dsMenuLoaiCV) {
-            if (item.id == id) {
-                console.log(item.dsNhomChiTietLoai);
+            if (item.id === id) {
+                //console.log(item.dsNhomChiTietLoai);
                 return item.dsNhomChiTietLoai;
             }
         }
-        return [];
+        // return [];
     }
     // Hàm tạo menu dựa trên item được truyền vào
     const createMenu = (itemId) => {
@@ -40,52 +38,49 @@ const NavMenuLoaiCV = () => {
 
         // Tạo các phần tử menu từ danh sách nhóm chi tiết loại
         return (
-            <Menu>
+            <Menu className="flex items-center justify-between py-5 px-2 !mt-2 ">
                 {dsNhomCTLoai.map((nhomItem, index) => (
-                    <Menu.Item key={index}>
-                        <Link className="flex items-center space-x-4">
-                            <h5 className="bg-white shadow-lg text-black">
-                                {nhomItem.tenNhom}
-                            </h5>
+                    <Menu.Item
+                        key={index}
+                        onClick={() => {
+                            console.log(nhomItem.dsChiTietLoai);
+                        }}
+                    >
+                        <Link className="block mt-2">
+                            <div>
+                                <h5 className=" font-semibold p-1 mt-1 text-base">
+                                    {nhomItem.tenNhom}
+                                </h5>
+                                <Menu.Item className="mt-1 ml-1 hover:bg-gray-100 z-10 ">
+                                    {nhomItem.dsChiTietLoai.map(
+                                        (item, index) => {
+                                            return (
+                                                <li
+                                                    onClick={() => {
+                                                        // console.log(item.id);
+                                                        handleCheck(item.id);
+                                                    }}
+                                                    key={index}
+                                                    style={{
+                                                        ":hover": {
+                                                            fontStyle: "italic",
+                                                        },
+                                                    }}
+                                                    className="mb-1 py-2 w-full h-full px-1 text-base rounded-lg text-gray-500 hover:!text-black "
+                                                >
+                                                    {item.tenChiTiet}
+                                                </li>
+                                            );
+                                        }
+                                    )}
+                                </Menu.Item>
+                            </div>
                         </Link>
                     </Menu.Item>
                 ))}
             </Menu>
         );
     };
-
-    // function getDSCTLoaiByIdNhom() {
-    //     CTLoaiCV?.map((item, index) => {
-    //         console.log(item.dsChiTietLoai);
-    //         //console.log(item.dsChiTietLoai);
-    //     });
-    // }
-    // console.log(CTLoaiCV);
-    // getDSCTLoaiByIdNhom();
-
-    const handleMouseOver = (item) => {
-        const dsNhomCTLoai = getDsNhomCTLoaiByIdLoai(item.id);
-
-        // Setting the items as Menu.Item elements directly
-        const menuItems = dsNhomCTLoai.map((nhomItem, index) => (
-            <Menu.Item key={index}>
-                <Link className="flex items-center space-x-4">
-                    <h5 className="bg-white shadow-lg text-black">
-                        {nhomItem.tenNhom}
-                    </h5>
-                </Link>
-            </Menu.Item>
-        ));
-
-        setItems(menuItems);
-        setOpenDropdown(true);
-    };
-    const handleOnMouseOut = () => {
-        setOpenDropdown(false);
-    };
-
-    // Pass the items directly to the Menu component
-    const menu = <Menu>{items}</Menu>;
 
     return (
         <>
@@ -106,38 +101,23 @@ const NavMenuLoaiCV = () => {
                                         setHoveredItemId(item.id)
                                     } // Cập nhật ID của mục đang hover
                                     onMouseOut={() => setHoveredItemId(null)} // Reset lại khi chuột rời khỏi mục
-                                    className="hover:border-b-4 py-2 hover:border-b-green-500 h-10"
+                                    className="hover:border-b-4 py-2 hover:border-b-green-500 h-10 "
                                 >
                                     {/* {item.tenLoaiCongViec} */}
                                     {/* Hiển thị Dropdown riêng cho từng li */}
                                     <Dropdown
                                         overlay={createMenu(item.id)} // Tạo menu dựa trên ID của item
                                         placement="bottom"
+                                        className="mt-4"
                                         open={hoveredItemId === item.id} // Chỉ mở khi mục này đang được hover
-                                        arrow={{
-                                            pointAtCenter: true,
-                                        }}
                                     >
-                                        <a onClick={(e) => e.preventDefault()}>
-                                            {item.tenLoaiCongViec}
-                                        </a>
+                                        <a>{item.tenLoaiCongViec}</a>
                                     </Dropdown>
                                 </li>
                             </>
                         );
                     })}
                 </ul>
-                <Dropdown
-                    overlay={menu}
-                    placement="bottom"
-                    open={openDropdown}
-                    onOpenChange={setOpenDropdown}
-                    arrow={{
-                        pointAtCenter: true,
-                    }}
-                >
-                    <a onClick={(e) => e.preventDefault()}></a>
-                </Dropdown>
             </div>
         </>
     );
