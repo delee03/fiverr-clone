@@ -1,0 +1,40 @@
+.prosper_section {
+    margin-top: 50px;
+
+    .container {
+
+        .prosper {
+
+            h2 {
+                font-size: 40px;
+                line-height: 130%;
+            }
+
+            .prosper_search {
+                display: flex;
+                align-items: center;
+                
+                
+                gap: 100px;
+                margin-top: 50px;
+
+                .prosper_list {
+
+                    .prosper_it {
+                        display: flex;
+                    }
+
+                    h3 {
+                        margin: 15px 0;
+                        font-size: 20px;
+                        font-weight: 600;
+                        
+                    }
+                    p {
+                        opacity: 0.6;
+                    }
+                }
+            }
+        }
+    }
+}

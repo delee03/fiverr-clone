@@ -1,0 +1,104 @@
+.card_section {
+
+    .container {
+
+        .card {
+
+            h2 {
+                font-size: 48px;
+                letter-spacing: -1.44px;
+                line-height: 105%;
+                max-width: 720px;
+            }
+            .card_skill {
+                position: relative;
+                width: 100%;
+
+                .card_list {
+                    overflow-x: hidden;
+                    position: relative;
+
+                    .arrow-btn {
+                        display: flex;
+                        align-items: center;
+                        background-color: #fff;
+                        border: 0;
+                        border-radius: 50%;
+                        bottom: 0;
+                        display: none;
+                        height: 48px; 
+                        margin: auto;
+                        position: absolute;
+                        text-align: center;
+                        top: 0;
+                        width: 48px;
+                        z-index: 1;
+                        cursor: pointer;
+                        box-shadow: 0 1.2px 1.92251px rgba(0, 0, 0, .02), 0 2px 3.68135px rgba(0, 0, 0, .04), 0 1px 5px rgba(0, 0, 0, .05);
+
+                        span {
+                            margin-right: 2px;
+                            background: none;
+                            border: none;
+                            display: inline-block;
+                            margin: 0;
+                            padding: 0;
+                            width: 16px;
+                            height: 16px;
+                            fill: #62646A;
+
+                            svg {
+                                float: left;
+                                height: 100%;
+                                width: 100%;
+                            }
+                        }
+                    }
+
+                    .card_track {
+                        display: flex;
+
+                        .card_item {
+                            display: flex;
+
+                        .card_it {
+                        border-radius: 16px;
+                        margin: 12px 4px;
+                        min-height: 235px;
+                        padding: 25px 6px 6px;
+                        width: 188px;
+                        box-shadow: 0 3px 10px 0 rgba(0, 0, 0, .13);
+                            
+                        a {
+                            height: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            h3 {
+                                color: #fff;
+                                font-weight: 700;
+                                padding: 0 10px;
+                                margin-bottom: 20px;
+                                font-size: 18px;
+                                line-height: 28px;
+                                position: relative;
+                                z-index: 1;
+                            }
+                            picture {
+                                img {
+                                    width: 188px;
+                                    height: 157px;
+                                    border-radius: 16px;
+                                    display: block;
+                                }
+                            }
+                            
+                        }
+                        }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

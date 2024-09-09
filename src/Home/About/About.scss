@@ -1,0 +1,221 @@
+
+  .container {
+    
+    .about {
+      gap: 40px;
+      padding: 40px 0;
+      display: flex;
+      flex-direction: column;
+
+      h2 {
+        font-size: 48px;
+        letter-spacing: -1.44px;
+        line-height: 105%;
+        max-width: 720px;
+        font-weight: 400;
+      }
+      .about_carousel {
+        position: relative;
+        width: 100%;
+        
+
+        .about_list {
+          overflow-x: hidden;
+
+          .about_arrow_left{
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border: 0;
+            border-radius: 50%;
+            bottom: 0;
+            height: 48px;
+            justify-content: center;
+            margin: auto;
+            position: absolute;
+            text-align: center;
+            top: 0;
+            width: 48px;
+            z-index: 1;
+
+            .left {
+                left: 0;
+                transform: translateX(-50%);
+            }
+          }
+
+          .about_arrow_right{
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border: 0;
+            border-radius: 50%;
+            bottom: 0;
+            height: 48px;
+            justify-content: center;
+            margin: auto;
+            position: absolute;
+            text-align: center;
+            top: 0;
+            width: 48px;
+            z-index: 1;
+
+            .right {
+                right: 0;
+                transform: translateX(50%);
+            }
+          }
+
+          .about_track {
+            display: flex;
+
+            .track_item {
+                
+                scroll-snap-align: start;
+              .track {
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+              }
+
+              .about_video {
+                width: 40%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                min-height: 250px;
+                
+
+                .about_picture {
+                  cursor: pointer;
+                  position: relative;
+
+                  img {
+                    max-width: 100%;
+                    height: auto;
+                    border-radius: 6px;
+                  }
+
+                  &:after {
+                    background: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/desktop-play-button.bab1740.png)
+                      no-repeat;
+                    background-size: 80px;
+                    content: "";
+                    display: inline-block;
+                    height: 80px;
+                    left: 50%;
+                    position: absolute;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 80px;
+                    z-index: 0;
+                  }
+
+                  picture {
+                    display: flex;
+                    
+                  }
+                }
+              }
+              .about_content {
+                max-width: 707px;
+                padding: 0 48px 0 64px;
+                width: 60%;
+                
+                h5 {
+                  color: #74767e;
+                  font-weight: 400;
+                  padding-bottom: 16px;
+                  font-size: 20px;
+                  line-height: 140%;
+
+                    span {
+                      border-left: 1px solid #c5c6c9;
+                      margin-left: 16px;
+                  img {
+
+                    margin-left: 12px;
+                    vertical-align: middle;
+                    height: 36px;
+                  }
+                    }
+                }
+                .about_font {
+                  font-size: 30px;
+                  line-height: 44px;
+                  padding-bottom: 0;
+                  color: #003912;
+
+                  em {
+                    font-family: DomaineDisplay, Helvetica Neue, Helvetica,
+                      Arial, sans-serif;
+                    font-weight: 500;
+                    font-style: italic;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #small-dialog {
+    max-width: 750px;
+    margin: 40px auto;
+    position: relative;
+  }
+  div#small-dialog iframe {
+    width: 100%;
+    height: 420px;
+    display: block;
+    border-radius: 10px;
+  }
+  .mfp-close-btn-in .mfp-close {
+    color: #fff;
+  }
+  .mfp-close,
+  .mfp-close:active {
+    top: -40px;
+  }
+  
+  /**
+     * Fade-zoom animation for first dialog
+     */
+  /* start state */
+  .my-mfp-zoom-in .zoom-anim-dialog {
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+    transform: scale(0.8);
+  }
+  
+  /* animate in */
+  .my-mfp-zoom-in.mfp-ready .zoom-anim-dialog {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  /* animate out */
+  .my-mfp-zoom-in.mfp-removing .zoom-anim-dialog {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  
+  /* Dark overlay, start state */
+  .my-mfp-zoom-in.mfp-bg {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+  }
+  
+  /* animate in */
+  .my-mfp-zoom-in.mfp-ready.mfp-bg {
+    opacity: 0.95;
+  }
+  
+  /* animate out */
+  .my-mfp-zoom-in.mfp-removing.mfp-bg {
+    opacity: 0;
+  }
+
