@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Lottie from "lottie-react";
 
 import signInAnimation from "../assets/animation/loginAnimation.json";
-import InputCustom from "../components/Input/InputCustom";
+import InputCustom from "../components/Custom/InputCustom";
 import { Link, useNavigate } from "react-router-dom";
 import { path } from "../common/path";
 import { useFormik } from "formik";
@@ -53,7 +53,7 @@ const LoginPage = () => {
                         setLocalStorage("userInfo", res.data.content);
                         //thực hiện dispatch lên redux
                         dispatch(getInfoUser(res.data.content));
-
+                        console.log(getInfoUser(res.data.content));
                         //Buoc 2: Thuc hien thong bao va ck huong user
                         showNotification(
                             "Đăng nhập thành công, đang chuyển hướng về trang chủ",
@@ -127,11 +127,11 @@ const LoginPage = () => {
                                 onBlur={handleBlur}
                                 placehoder={"Vui lòng nhập email"}
                             />
-                            {errors.email && touched.email ? (
+                            {/* {errors.email && touched.email ? (
                                 <p className=" text-red-500 mt-0">
                                     {errors.email}
                                 </p>
-                            ) : null}
+                            ) : null} */}
                             {/* Handle Blur kiểm tra từng input mà không kiểm tra hết tất cả input khi user chưa nhập xong các input khác */}
                             <InputCustom
                                 label={"Email"}
@@ -144,11 +144,11 @@ const LoginPage = () => {
                                 placehoder={"Vui lòng nhập password"}
                                 typeInput="password"
                             />
-                            {errors.password && touched.password ? (
+                            {/* {errors.password && touched.password ? (
                                 <p className=" text-red-500 mt-0">
                                     {errors.password}
                                 </p>
-                            ) : null}
+                            ) : null} */}
                             <div>
                                 <button
                                     type="submit"

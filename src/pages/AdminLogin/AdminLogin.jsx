@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import InputCustom from "../../components/Input/InputCustom";
+import InputCustom from "../../components/Custom/InputCustom";
 import Lottie from "lottie-react";
 import loginAdmin from "../../assets/animation/loginAdmin.json";
 import { useFormik } from "formik";

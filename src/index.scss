@@ -1,3 +1,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: Macan;
+    src: url("./assets/stylesheet.css");
+}
+body {
+    font-family: Macan;
+}
+
+.title-heading {
+    font-size: 48px;
+    text-align: left;
+    color: #404145;
+    font-weight: 400;
+    letter-spacing: -1.44px;
+    line-height: 105%;
+}
+
+.desc-job {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    font-weight: 500;
+}
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+    right: 50px !important;
+    left: auto !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    top: 30px !important;
+    height: 30px !important;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid #555;
+    width: 30px !important;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    color: #555;
+    font-size: 14px;
+    font-weight: 700;
+}

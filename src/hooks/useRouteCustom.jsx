@@ -9,6 +9,10 @@ import AdminTemplate from "../template/AdminTemplate/AdminTemplate";
 import AdminLogin from "../pages/AdminLogin/AdminLogin";
 import ManagerUser from "../components/ManagerUser/ManagerUser";
 import WrapperSuggestJob from "../components/Wrapper/WrapperSuggestJob";
+import SignUpPage from "../pages/SignUpPage";
+import ListCongViec from "../components/ListJobsPage/ListCongViec";
+import PopularService from "../components/PopularService/PopularService";
+import NavMenuLoaiCV from "../components/NavBar/NavMenuLoaiCV";
 import Hero from "../Home/Hero/Hero";
 import Home from "../Home/Home";
 
@@ -19,14 +23,23 @@ const useRouteCustom = () => {
       element: <UserTemplate />,
       children: [
         {
+          index: true,
+          element: <Home />,
+        },
+        {
           path: path.listjob,
           element: <ListJobPage />,
         },
         {
-          index: true,
-          element: <Home />,
+          // index: true,
+          path: path.listcv,
+          element: <ListCongViec />,
         },
       ],
+    },
+    {
+      path: "/popular-service",
+      element: <PopularService />,
     },
     {
       path: "/*",
@@ -35,6 +48,10 @@ const useRouteCustom = () => {
     {
       path: "/sign-in",
       element: <LoginPage />,
+    },
+    {
+      path: "/sign-up",
+      element: <SignUpPage />,
     },
     {
       path: path.admin,
@@ -50,6 +67,10 @@ const useRouteCustom = () => {
     {
       path: "/admin-login",
       element: <AdminLogin />,
+    },
+    {
+      path: "/nav",
+      element: <NavMenuLoaiCV />,
     },
   ]);
   return routes;

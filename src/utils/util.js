@@ -1,5 +1,5 @@
 export function setLocalStorage(key, value) {
-    //lưu dữ liệu xuống local
+    //lưu dữ liệu xuống local caafn chuyen thanh string
     const data = typeof value === "string" ? value : JSON.stringify(value);
     localStorage.setItem(key, data);
 }
