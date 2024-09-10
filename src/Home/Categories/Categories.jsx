@@ -1,5 +1,6 @@
 import React from "react";
 import "./categories.scss";
+import "./ResCategories.scss";
 
 import Categories_fiverr1 from "../../assets/images/Categories_fiverr1.svg";
 import Categories_fiverr2 from "../../assets/images/Categories_fiverr2.svg";

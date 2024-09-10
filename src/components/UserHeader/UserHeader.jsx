@@ -52,52 +52,32 @@ const UserHeader = () => {
   //     },
   // ];
 
-    const { infoUser } = useSelector((state) => state.authSlice); //state này đại diện cho reducers tại config Store của redux từ đó gọi đến authSlice
-    //destructoring từ authSlice lấy user bằng cách useSelector
-    console.log(infoUser);
-    const checkUserLogin = () => {
-        //dùng trả về layout
-        return infoUser ? (
-            <Dropdown menu={{ items }} trigger={["click"]}>
-                <Avatar className="cursor-pointer hover:bg-orange-500 duration-300">
-                    {infoUser.user.name.slice(0, 1)}
-                </Avatar>
-            </Dropdown>
-        ) : (
-            <>
-                <Link
-                    to={path.signin}
-                    className="py-2 px-4 rounded-md hover:bg-gray-200 duration-300"
-                >
-                    Sign in
-                </Link>
-                <Link
-                    to={path.signup}
-                    className="py-2 px-4 rounded-md text-green-500 border-green-500 hover:bg-green-500 hover:text-white duration-300"
-                >
-                    Sign up
-                </Link>
-            </>
-        );
-    };
-    return (
-        <header>
-            <div className="container">
-                <div className="header_content py-8 flex items-center justify-between">
-                    <div className="header_logo flex items-center space-x-5">
-                        <Link to={path.homepage}>
-                            <LogoIcon />
-                        </Link>
-                        <WrapperSuggestJob>
-                            <FormSearchProduct />
-                        </WrapperSuggestJob>
-                    </div>
-                    <nav className="header_navigate space-x-5">
-                        {checkUserLogin()}
-                    </nav>
-                </div>
-            </div>
-        </header>
+  const { infoUser } = useSelector((state) => state.authSlice); //state này đại diện cho reducers tại config Store của redux từ đó gọi đến authSlice
+  //destructoring từ authSlice lấy user bằng cách useSelector
+  console.log(infoUser);
+  const checkUserLogin = () => {
+    //dùng trả về layout
+    return infoUser ? (
+      <Dropdown menu={{ items }} trigger={["click"]}>
+        <Avatar className="cursor-pointer hover:bg-orange-500 duration-300">
+          {infoUser.name.slice(0, 1)}
+        </Avatar>
+      </Dropdown>
+    ) : (
+      <>
+        <Link
+          to={path.signin}
+          className="py-2 px-4 rounded-md hover:bg-gray-200 duration-300"
+        >
+          Sign in
+        </Link>
+        <Link
+          to={path.signup}
+          className="py-2 px-4 rounded-md text-green-500 border-green-500 hover:bg-green-500 hover:text-white duration-300"
+        >
+          Sign up
+        </Link>
+      </>
     );
   };
   return (

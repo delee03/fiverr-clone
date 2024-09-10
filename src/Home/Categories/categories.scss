@@ -32,7 +32,7 @@
                         box-shadow: 0 0 .880517px rgba(0, 0, 0, .029), 0 0 2.29197px rgba(0, 0, 0, .03), 0 0 5.52px rgba(0, 0, 0, .054), 0 0 11px rgba(0, 0, 0, .09);
                         transition: all 0.5s;
                         &:hover {
-                            color: #1dbf73;
+                            background: radial-gradient(63.44% 63.44% at 50% 50%, #c2ffe2 0, #fff 100%), #fff;
                         }
                         p {
                             height: 48px;
@@ -46,3 +46,5 @@
             }
         }
     }
+
+    

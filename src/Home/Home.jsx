@@ -9,6 +9,8 @@ import About from "./About/About";
 import Market from "./Market/Market";
 import Design from "./Design/Design";
 import Finger from "./Finger/Finger";
+import PopularService from "../components/PopularService/PopularService";
+import Guides from "./Guides/Guides";
 
 const Home = () => {
   return (
@@ -16,12 +18,13 @@ const Home = () => {
       <Hero />
       <Categories />
       <Card />
+      <PopularService />
       <Prosper />
       <Video />
       <Business />
       <About />
       <Market />
-      <Design />
+      <Guides />
       <Finger />
     </>
   );

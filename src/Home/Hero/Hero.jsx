@@ -1,5 +1,6 @@
 import React from "react";
 import "./Hero.scss";
+import "./ResHero.scss";
 import IconSearch from "../../components/Icon/IconSearch";
 import ImageFiver1 from "../../assets/images/image_fiverr1.svg";
 import ImageFiver2 from "../../assets/images/image_fiverr2.svg";
