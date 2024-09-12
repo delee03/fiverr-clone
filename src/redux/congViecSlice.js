@@ -27,6 +27,7 @@ export const getCVTheoCTLoaiApi = createAsyncThunk(
 const initialState = {
     allCongViec: [],
     layCongViecTheoChiTietLoai: [],
+    jobTitle: "All jobs fiverr",
 };
 
 const congViecSlice = createSlice({

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./categories.scss";
 import { Link } from "react-router-dom";
 
@@ -11,6 +11,7 @@ import Categories_fiverr6 from "../../assets/images/Categories_fiverr6.svg";
 import Categories_fiverr7 from "../../assets/images/Categories_fiverr7.svg";
 import Categories_fiverr8 from "../../assets/images/Categories_fiverr8.svg";
 import Categories_fiverr9 from "../../assets/images/Categories_fiverr9.svg";
+import SpinnerCustom from "../../components/Custom/SpinnerCustom";
 
 const Categories_Img = [
     {
@@ -61,6 +62,7 @@ const Categories_Img = [
 ];
 
 const Categories = () => {
+    const [ChuyenHuong, setChuyenHuong] = useState(false);
     return (
         <div className="categories_section">
             <div className="container">
@@ -68,7 +70,14 @@ const Categories = () => {
                     <div className="categories_skill">
                         {Categories_Img.map((data, index) => (
                             <div className="categories_list">
-                                <Link to="/list-cv">
+                                <Link
+                                    onClick={() => {
+                                        setChuyenHuong(true);
+                                        setTimeout(() => {
+                                            window.location.href = "/cong-viec";
+                                        }, 2000);
+                                    }}
+                                >
                                     <div>
                                         <img src={data.image} alt="" />
                                     </div>
@@ -76,6 +85,9 @@ const Categories = () => {
                                 </Link>
                             </div>
                         ))}
+                        {ChuyenHuong && (
+                            <SpinnerCustom title="Đang chuyển hướng" />
+                        )}
                     </div>
                 </div>
             </div>

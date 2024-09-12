@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
+import { Virtual } from "swiper/modules";
 import "swiper/css/autoplay";
 // import required modules
 import { Pagination, Scrollbar, EffectFade, Autoplay } from "swiper/modules";
@@ -24,7 +25,7 @@ const PopularService = () => {
             .getLoaiCongViec()
             .then((res) => {
                 //console.log(res);
-                setdsLoaiCV(res.data.content);
+                setdsLoaiCV(res.data.content.slice(0, 9));
             })
             .catch((error) => {
                 console.log(error);
@@ -103,7 +104,6 @@ const PopularService = () => {
                     scrollbar={{ draggable: true }}
                     modules={[Pagination, Scrollbar, EffectFade, Autoplay]} // Add Autoplay module
                     className="mySwiper mt-10"
-                    autoplay={{ delay: 1500 }} // Set autoplay delay
                     onSwiper={(swiper) => console.log(swiper)}
                     onSlideChange={() => console.log("slide change")}
                     breakpoints={{
@@ -130,13 +130,14 @@ const PopularService = () => {
                         return (
                             <SwiperSlide
                                 key={index}
-                                className={` item pt-4 px-2 pb-2 min-h-64 w-56 rounded-2xl ${mauNen}`}
+                                className={`!opacity-100 item pt-4 px-2 pb-2 min-h-64 w-56 rounded-2xl ${mauNen}`}
                             >
                                 <Link
+                                    className="block"
                                     onClick={() => {
                                         setChuyenHuong(true);
                                         setTimeout(() => {
-                                            window.location.href = "/list-cv";
+                                            window.location.href = "/cong-viec";
                                         }, 2000);
                                     }}
                                 >

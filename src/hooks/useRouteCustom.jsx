@@ -15,6 +15,7 @@ import PopularService from "../components/PopularService/PopularService";
 import NavMenuLoaiCV from "../components/NavBar/NavMenuLoaiCV";
 import Hero from "../Home/Hero/Hero";
 import Home from "../Home/Home";
+import JobDetail from "../components/JobDetail/JobDetail";
 
 const useRouteCustom = () => {
     const routes = useRoutes([
@@ -38,8 +39,8 @@ const useRouteCustom = () => {
             ],
         },
         {
-            path: "/popular-service",
-            element: <PopularService />,
+            path: "/chi-tiet-cong-viec",
+            element: <JobDetail />,
         },
         {
             path: "/*",

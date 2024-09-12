@@ -1,6 +1,9 @@
 import React from "react";
 
-const BreadCrumCustom = ({ breadcrum, title }) => {
+const BreadCrumCustom = ({
+    breadcrum = "Home",
+    title = "All Job at Fiverr",
+}) => {
     return (
         <>
             <div className="flex items-center gap-2">

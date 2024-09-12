@@ -10,14 +10,14 @@ import NavMenuLoaiCV from "../NavBar/NavMenuLoaiCV";
 import SpinnerCustom from "../Custom/SpinnerCustom";
 
 const ListCongViec = () => {
-    // const [tenChuDe, setTenChuDe] = useState("");
+    // const [tenLoaiCV, setTenLoaiCV] = useState("");
     const valueAllCongViec = useSelector((state) => state.congViecSlice);
     const valueCongViecTheoChiTietLoai = useSelector(
         (state) => state.congViecSlice
     );
     //const [dataChange, setDataChange] = useState(valueAllCongViec.allCongViec);
-    console.log(valueCongViecTheoChiTietLoai.layCongViecTheoChiTietLoai);
-    console.log(valueAllCongViec.allCongViec);
+    // console.log(valueCongViecTheoChiTietLoai.layCongViecTheoChiTietLoai);
+    // console.log(valueAllCongViec.allCongViec);
     const [Loading, setLoading] = useState(true);
     const dispatch = useDispatch();
 
@@ -30,18 +30,34 @@ const ListCongViec = () => {
 
     useEffect(() => {
         const fetchData = async () => {
+            setLoading(true); // Đặt loading trước khi gọi API
             dispatch(getAllCVApi());
 
             await new Promise((resolve) => setTimeout(resolve, 1500)); //đợi cho api trả về 1.5s
-            setLoading(false);
+            setLoading(false); //get api honaf thành
         };
-        if (!CheckHover) {
-            setLoading(false);
-        } else {
-            setLoading(true);
-        }
+        // if (!CheckHover) {
+        //     setLoading(false);
+        // } else {
+        //     setLoading(true);
+        // }
         fetchData();
-    }, [CheckHover]);
+    }, [dispatch]);
+
+    // let tenChuDe = valueCongViecTheoChiTietLoai.layCongViecTheoChiTietLoai.map(
+    //     (item) => {
+    //         return item.congViec.tenLoaiCongViec;
+    //     }
+    // );
+
+    // if (tenChuDe) {
+    //     console.log(tenChuDe);
+    // }
+    let tenChuDe = valueCongViecTheoChiTietLoai.layCongViecTheoChiTietLoai[0]
+        ?.tenChiTietLoai
+        ? valueCongViecTheoChiTietLoai?.layCongViecTheoChiTietLoai[0]
+              ?.tenChiTietLoai
+        : "All Job Fiverr";
 
     //viest 1 hàm check state khi hover dropdown thay đổi thì truyền nó lên LIstCongViec từ NavMenuCV
     //sau đó nếu state thay đổi đó gửi ID mã chi tiết công việc đó lên ListCongViec dispatch lấy dữ liệu từ layCongViecTheoChiTietLoai service về render ra là xong
@@ -51,10 +67,7 @@ const ListCongViec = () => {
             {Loading && <SpinnerCustom title={"Đang lấy dữ liệu"} />}
             <div className="container">
                 <NavMenuLoaiCV handleCheck={handleCheckHoverDropdown} />
-                <BreadCrumCustom
-                    title={"All jobs fiverr"}
-                    breadcrum={"All jobs"}
-                />
+                <BreadCrumCustom title={tenChuDe} breadcrum={tenChuDe} />
                 <TechCarousel />
                 <OptionsCV />
                 <div className="flex justify-between pb-1 mt-8 items-center">
@@ -90,58 +103,56 @@ const ListCongViec = () => {
                         />
                     </div>
                 </div>
-                {valueCongViecTheoChiTietLoai.layCongViecTheoChiTietLoai ? (
-                    <h2 className="text-3xl font-bold py-4">
-                        {/* Danh sách công việc theo: {tenChuDe} */}
-                    </h2>
-                ) : null}
+
                 <div className="grid grid-cols-4 gap-5 mt-5">
                     {CheckHover == null
-                        ? valueAllCongViec.allCongViec.map((item, index) => {
-                              return (
-                                  <div
-                                      key={index}
-                                      className="border p-3 rounded-xl"
-                                  >
-                                      <img
-                                          src={item?.hinhAnh}
-                                          className="w-full rounded-lg"
-                                          alt=""
-                                      />
+                        ? [...valueAllCongViec.allCongViec]
+                              .reverse()
+                              .map((item, index) => {
+                                  return (
+                                      <div
+                                          key={index}
+                                          className="border p-3 rounded-xl"
+                                      >
+                                          <img
+                                              src={item?.hinhAnh}
+                                              className="w-full rounded-lg"
+                                              alt=""
+                                          />
 
-                                      <div>
-                                          <h3 className="font-semibold py-2 min-h-24">
-                                              {item?.tenCongViec}
-                                          </h3>
+                                          <div>
+                                              <h3 className="font-semibold py-2 min-h-24">
+                                                  {item?.tenCongViec}
+                                              </h3>
 
-                                          <span className="text-yellow-400 space-x-2 ">
-                                              <i className="fa-solid fa-star">
-                                                  {item?.saoCongViec}
-                                              </i>
-                                          </span>
-                                          <span className="text-gray-800 font-semibold">
-                                              {item?.danhGia}
-                                          </span>
-                                      </div>
-                                      <div className="mt-2">
-                                          <p className="desc-job text-xs">
-                                              {item.moTaNgan}
-                                          </p>
-                                      </div>
-                                      {/* lựa chọn yêu thích và giá tiền công việc */}
-                                      <div className="flex justify-between items-center mt-3">
-                                          <i className="fa-solid fa-heart"></i>
-                                          <p className="uppercase font-semibold">
-                                              From
-                                              <span>
-                                                  $
-                                                  {item?.giaTien.toLocaleString()}
+                                              <span className="text-yellow-400 space-x-2 ">
+                                                  <i className="fa-solid fa-star">
+                                                      {item?.saoCongViec}
+                                                  </i>
                                               </span>
-                                          </p>
+                                              <span className="text-gray-800 font-semibold">
+                                                  {item?.danhGia}
+                                              </span>
+                                          </div>
+                                          <div className="mt-2">
+                                              <p className="desc-job text-xs">
+                                                  {item.moTaNgan}
+                                              </p>
+                                          </div>
+                                          {/* lựa chọn yêu thích và giá tiền công việc */}
+                                          <div className="flex justify-between items-center mt-3">
+                                              <i className="fa-solid fa-heart"></i>
+                                              <p className="uppercase font-semibold">
+                                                  From
+                                                  <span>
+                                                      $
+                                                      {item?.giaTien.toLocaleString()}
+                                                  </span>
+                                              </p>
+                                          </div>
                                       </div>
-                                  </div>
-                              );
-                          })
+                                  );
+                              })
                         : valueCongViecTheoChiTietLoai.layCongViecTheoChiTietLoai.map(
                               (item, index) => {
                                   //   setTenChuDe(item.tenChiTietLoai);
