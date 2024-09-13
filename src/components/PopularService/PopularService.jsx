@@ -101,6 +101,7 @@ const PopularService = () => {
                 <Swiper
                     slidesPerView={1}
                     spaceBetween={10}
+                    autoplay={true}
                     scrollbar={{ draggable: true }}
                     modules={[Pagination, Scrollbar, EffectFade, Autoplay]} // Add Autoplay module
                     className="mySwiper mt-10"

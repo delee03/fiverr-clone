@@ -36,50 +36,31 @@ const NavMenuLoaiCV = ({ handleCheck }) => {
     const createMenu = (itemId) => {
         const dsNhomCTLoai = getDsNhomCTLoaiByIdLoai(itemId);
 
+        if (!Array.isArray(dsNhomCTLoai)) {
+            return [];
+        }
         // Tạo các phần tử menu từ danh sách nhóm chi tiết loại
-        return (
-            <Menu className="flex items-center justify-between py-5 px-2 !mt-2 ">
-                {dsNhomCTLoai.map((nhomItem, index) => (
-                    <Menu.Item
-                        key={index}
-                        onClick={() => {
-                            console.log(nhomItem.dsChiTietLoai);
-                        }}
-                    >
-                        <Link className="block mt-2">
-                            <div>
-                                <h5 className=" font-semibold p-1 mt-1 text-base">
-                                    {nhomItem.tenNhom}
-                                </h5>
-                                <Menu.Item className="mt-1 ml-1 hover:bg-gray-100 z-10 ">
-                                    {nhomItem.dsChiTietLoai.map(
-                                        (item, index) => {
-                                            return (
-                                                <li
-                                                    onClick={() => {
-                                                        // console.log(item.id);
-                                                        handleCheck(item.id);
-                                                    }}
-                                                    key={index}
-                                                    style={{
-                                                        ":hover": {
-                                                            fontStyle: "italic",
-                                                        },
-                                                    }}
-                                                    className="mb-1 py-2 w-full h-full px-1 text-base rounded-lg text-gray-500 hover:!text-black "
-                                                >
-                                                    {item.tenChiTiet}
-                                                </li>
-                                            );
-                                        }
-                                    )}
-                                </Menu.Item>
-                            </div>
-                        </Link>
-                    </Menu.Item>
-                ))}
-            </Menu>
-        );
+        return dsNhomCTLoai.map((nhomItem, index) => ({
+            key: index.toString(),
+            label: (
+                <div onClick={() => console.log(nhomItem.dsChiTietLoai)}>
+                    <h5 className="font-semibold p-1 mt-1 text-base">
+                        {nhomItem?.tenNhom}
+                    </h5>
+                    <ul className="mt-1 ml-1">
+                        {nhomItem?.dsChiTietLoai?.map((item, subIndex) => (
+                            <li
+                                key={subIndex}
+                                onClick={() => handleCheck(item.id)}
+                                className="mb-1 py-2 w-full h-full px-1 text-base rounded-lg text-gray-500 hover:!text-black"
+                            >
+                                {item.tenChiTiet}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            ),
+        }));
     };
 
     return (
@@ -93,6 +74,7 @@ const NavMenuLoaiCV = ({ handleCheck }) => {
                     }}
                 >
                     {dsMenuLoaiCV.slice(0, 9).map((item, index) => {
+                        // let items = createMenu(item.id);
                         return (
                             <>
                                 <li
@@ -106,9 +88,9 @@ const NavMenuLoaiCV = ({ handleCheck }) => {
                                     {/* {item.tenLoaiCongViec} */}
                                     {/* Hiển thị Dropdown riêng cho từng li */}
                                     <Dropdown
-                                        overlay={createMenu(item.id)} // Tạo menu dựa trên ID của item
+                                        menu={{ items: createMenu(item.id) }} // Tạo menu dựa trên ID của item
                                         placement="bottom"
-                                        className="mt-4"
+                                        className="mt-4 "
                                         open={hoveredItemId === item.id} // Chỉ mở khi mục này đang được hover
                                     >
                                         <a>{item.tenLoaiCongViec}</a>

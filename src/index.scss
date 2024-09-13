@@ -50,3 +50,65 @@ body {
     font-size: 14px;
     font-weight: 700;
 }
+
+:where(.css-dev-only-do-not-override-1pg9a38).ant-dropdown .ant-dropdown-menu,
+:where(.css-dev-only-do-not-override-1pg9a38).ant-dropdown-menu-submenu
+    .ant-dropdown-menu {
+    display: flex;
+    margin-top: 10px;
+}
+//nhớ viết đè thư viện trong index.scss
+
+:where(.css-dev-only-do-not-override-1pg9a38).ant-tabs {
+    border: 2px solid rgb(183 178 178 / 80%);
+}
+
+:where(.css-dev-only-do-not-override-1pg9a38).ant-tabs > .ant-tabs-nav,
+:where(.css-dev-only-do-not-override-1pg9a38).ant-tabs > div > .ant-tabs-nav {
+    display: block !important;
+}
+
+:where(.css-dev-only-do-not-override-1pg9a38).ant-tabs
+    > .ant-tabs-nav
+    .ant-tabs-nav-list,
+:where(.css-dev-only-do-not-override-1pg9a38).ant-tabs
+    > div
+    > .ant-tabs-nav
+    .ant-tabs-nav-list {
+    justify-content: space-around !important;
+    gap: -8px;
+}
+:where(.css-dev-only-do-not-override-1pg9a38).ant-tabs .ant-tabs-tab {
+    justify-content: center !important;
+    width: 100%;
+}
+:where(.css-dev-only-do-not-override-1pg9a38).ant-tabs
+    .ant-tabs-tab
+    + .ant-tabs-tab {
+    margin: 0;
+}
+
+:where(.css-dev-only-do-not-override-1pg9a38).ant-tabs-top
+    > .ant-tabs-nav
+    .ant-tabs-ink-bar {
+    bottom: -1px;
+    height: 4px;
+    background: rgba(2, 2, 2, 0.8);
+    width: 33.5% !important;
+}
+
+:where(.css-dev-only-do-not-override-1pg9a38).ant-tabs
+    > .ant-tabs-nav
+    .ant-tabs-nav-wrap,
+:where(.css-dev-only-do-not-override-1pg9a38).ant-tabs
+    > div
+    > .ant-tabs-nav
+    .ant-tabs-nav-wrap {
+    display: block;
+}
+
+:where(.css-dev-only-do-not-override-1pg9a38).ant-tabs .ant-tabs-tab {
+    border-left: 1px solid rgba(183, 178, 178, 0.8);
+    border-right: 1px solid rgba(183, 178, 178, 0.8);
+    border-bottom: 1px solid rgba(183, 178, 178, 0.8);
+}

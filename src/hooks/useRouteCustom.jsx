@@ -36,12 +36,13 @@ const useRouteCustom = () => {
                     path: path.listcv,
                     element: <ListCongViec />,
                 },
+                {
+                    path: "/chi-tiet-cong-viec",
+                    element: <JobDetail />,
+                },
             ],
         },
-        {
-            path: "/chi-tiet-cong-viec",
-            element: <JobDetail />,
-        },
+
         {
             path: "/*",
             element: <PageNotFound />,

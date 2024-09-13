@@ -16,7 +16,7 @@ const JobDetail = () => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     return (
         <section>
-            <div className="container">
+            <div className="container mt-8">
                 <div className="job-content flex pb-96">
                     <div className="left-content w-8/12">
                         <BreadCrumCustom title={"Graphic design"} />
@@ -239,7 +239,8 @@ const JobDetail = () => {
                             <p>Thank you for considering our services!</p>
                         </div>
                     </div>
-                    <div className="right-content w-4/12">
+                    <div className="right-content w-4/12 mt-8">
+                        <TabCustom />
                         <TabCustom />
                     </div>
                 </div>
