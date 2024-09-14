@@ -9,6 +9,7 @@ import TechCarousel from "../Custom/TechCarousel";
 import NavMenuLoaiCV from "../NavBar/NavMenuLoaiCV";
 import SpinnerCustom from "../Custom/SpinnerCustom";
 import "./navmenu.scss";
+import { Link } from "react-router-dom";
 
 const ListCongViec = () => {
     // const [tenLoaiCV, setTenLoaiCV] = useState("");
@@ -110,100 +111,34 @@ const ListCongViec = () => {
                         ? [...valueAllCongViec.allCongViec]
                               .reverse()
                               .map((item, index) => (
-                                  <div
-                                      key={index}
-                                      className="border p-3 rounded-xl"
-                                  >
-                                      <img
-                                          src={item?.hinhAnh}
-                                          className="w-full rounded-lg"
-                                          alt=""
-                                      />
-
-                                      <div>
-                                          <h3 className="font-semibold py-2 min-h-24">
-                                              {item?.tenCongViec}
-                                          </h3>
-
-                                          <span className="text-yellow-400 space-x-2 ">
-                                              <i className="fa-solid fa-star">
-                                                  {item?.saoCongViec}
-                                              </i>
-                                          </span>
-                                          <span className="text-gray-800 font-semibold">
-                                              {item?.danhGia}
-                                          </span>
-                                      </div>
-                                      <div className="mt-2">
-                                          <p className="desc-job text-xs">
-                                              {item.moTaNgan}
-                                          </p>
-                                      </div>
-                                      {/* lựa chọn yêu thích và giá tiền công việc */}
-                                      <div className="flex justify-between items-center mt-3">
-                                          <i className="fa-solid fa-heart"></i>
-                                          <p className="uppercase font-semibold">
-                                              From
-                                              <span>
-                                                  $
-                                                  {item?.giaTien.toLocaleString()}
-                                              </span>
-                                          </p>
-                                      </div>
-                                  </div>
-                              ))
-                        : valueCongViecTheoChiTietLoai.layCongViecTheoChiTietLoai.map(
-                              (item, index) => {
-                                  //   setTenChuDe(item.tenChiTietLoai);
-
-                                  return (
+                                  <Link to={`/chi-tiet-cong-viec/${item.id}`}>
                                       <div
                                           key={index}
                                           className="border p-3 rounded-xl"
                                       >
-                                          {/* <h2 className="text-3xl font-bold py-4">
-                                              Danh sách công việc theo:
-                                              {item.tenChiTietLoai}
-                                          </h2> */}
                                           <img
-                                              src={item?.congViec.hinhAnh}
+                                              src={item?.hinhAnh}
                                               className="w-full rounded-lg"
                                               alt=""
                                           />
-                                          <div className="flex justify-between items-center">
-                                              <div className="flex items-center space-x-3 mt-3">
-                                                  <img
-                                                      src={item.avatar}
-                                                      className="w-10 h-10 rounded-full"
-                                                      alt=""
-                                                  />
-                                                  <h4 className="font-bold text-lg">
-                                                      {item.tenNguoiTao}
-                                                  </h4>
-                                              </div>
-                                              <div>
-                                                  <span className="text-yellow-400 ">
-                                                      <i className="fa-solid fa-star">
-                                                          {
-                                                              item?.congViec
-                                                                  .saoCongViec
-                                                          }
-                                                      </i>
-                                                  </span>
-                                                  <span className="text-gray-800 font-semibold ml-2">
-                                                      {item?.congViec.danhGia}
-                                                  </span>
-                                              </div>
-                                          </div>
-                                          <div>
-                                              <h3 className="font-semibold py-2 min-h-18">
-                                                  {item?.congViec.tenCongViec}
-                                              </h3>
-                                          </div>
 
+                                          <div>
+                                              <h3 className="font-semibold py-2 min-h-24">
+                                                  {item?.tenCongViec}
+                                              </h3>
+
+                                              <span className="text-yellow-400 space-x-2 ">
+                                                  <i className="fa-solid fa-star">
+                                                      {item?.saoCongViec}
+                                                  </i>
+                                              </span>
+                                              <span className="text-gray-800 font-semibold">
+                                                  {item?.danhGia}
+                                              </span>
+                                          </div>
                                           <div className="mt-2">
                                               <p className="desc-job text-xs">
-                                                  {item?.congViec.moTaNgan}
+                                                  {item.moTaNgan}
                                               </p>
                                           </div>
                                           {/* lựa chọn yêu thích và giá tiền công việc */}
@@ -213,11 +148,89 @@ const ListCongViec = () => {
                                                   From
                                                   <span>
                                                       $
-                                                      {item?.congViec.giaTien.toLocaleString()}
+                                                      {item?.giaTien.toLocaleString()}
                                                   </span>
                                               </p>
                                           </div>
                                       </div>
+                                  </Link>
+                              ))
+                        : valueCongViecTheoChiTietLoai.layCongViecTheoChiTietLoai.map(
+                              (item, index) => {
+                                  //   setTenChuDe(item.tenChiTietLoai);
+
+                                  return (
+                                      <Link
+                                          to={`/chi-tiet-cong-viec/${item.id}`}
+                                      >
+                                          <div
+                                              key={index}
+                                              className="border p-3 rounded-xl"
+                                          >
+                                              {/* <h2 className="text-3xl font-bold py-4">
+                                              Danh sách công việc theo:
+                                              {item.tenChiTietLoai}
+                                          </h2> */}
+                                              <img
+                                                  src={item?.congViec.hinhAnh}
+                                                  className="w-full rounded-lg"
+                                                  alt=""
+                                              />
+                                              <div className="flex justify-between items-center">
+                                                  <div className="flex items-center space-x-3 mt-3">
+                                                      <img
+                                                          src={item.avatar}
+                                                          className="w-10 h-10 rounded-full"
+                                                          alt=""
+                                                      />
+                                                      <h4 className="font-bold text-lg">
+                                                          {item.tenNguoiTao}
+                                                      </h4>
+                                                  </div>
+                                                  <div>
+                                                      <span className="text-yellow-400 ">
+                                                          <i className="fa-solid fa-star">
+                                                              {
+                                                                  item?.congViec
+                                                                      .saoCongViec
+                                                              }
+                                                          </i>
+                                                      </span>
+                                                      <span className="text-gray-800 font-semibold ml-2">
+                                                          {
+                                                              item?.congViec
+                                                                  .danhGia
+                                                          }
+                                                      </span>
+                                                  </div>
+                                              </div>
+                                              <div>
+                                                  <h3 className="font-semibold py-2 min-h-18">
+                                                      {
+                                                          item?.congViec
+                                                              .tenCongViec
+                                                      }
+                                                  </h3>
+                                              </div>
+
+                                              <div className="mt-2">
+                                                  <p className="desc-job text-xs">
+                                                      {item?.congViec.moTaNgan}
+                                                  </p>
+                                              </div>
+                                              {/* lựa chọn yêu thích và giá tiền công việc */}
+                                              <div className="flex justify-between items-center mt-3">
+                                                  <i className="fa-solid fa-heart"></i>
+                                                  <p className="uppercase font-semibold">
+                                                      From
+                                                      <span>
+                                                          $
+                                                          {item?.congViec.giaTien.toLocaleString()}
+                                                      </span>
+                                                  </p>
+                                              </div>
+                                          </div>
+                                      </Link>
                                   );
                               }
                           )}

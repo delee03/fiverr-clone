@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -11,9 +11,37 @@ import { IconStar, IconStar4, IconQuestion } from "../Icon/IconStorage";
 import "./jobDetail.scss";
 // import required modules
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+import { useParams } from "react-router-dom";
+import { chiTietCongViecService } from "../../service/chiTietCongViec.service";
 
 const JobDetail = () => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
+    const [jobDetail, setJobDetail] = useState({});
+    const params = useParams();
+    console.log(params);
+
+    useEffect(() => {
+        chiTietCongViecService
+            .getCTCongViec(params.id)
+            .then((res) => {
+                console.log(res);
+                setJobDetail(res.data.content);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, [params.id]);
+    console.log(jobDetail);
+    const {
+        hinhAnh,
+        tenCongViec,
+        saoCongViec,
+        danhGia,
+        nguoiTao,
+        giaTien,
+        moTa,
+        moTaNgan,
+    } = jobDetail[0]?.congViec;
     return (
         <section>
             <div className="container mt-8">
@@ -21,20 +49,23 @@ const JobDetail = () => {
                     <div className="left-content w-8/12">
                         <BreadCrumCustom title={"Graphic design"} />
                         <h1 className="text-3xl font-semibold ">
-                            I will design a modern custom logo for your business
+                            {tenCongViec}
                         </h1>
                         <div className="flex items-center gap-2 mt-6 py-3 border-b-2 border-b-slate-50">
                             <img
                                 className="w-14 h-14 rounded-full mt-1"
-                                src="https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/fe1f9fdb33e2b7c5dbb5068ab9f8dfdc-1647327951564/b46a7c7e-8a97-4a23-8912-690eedf984fe.png"
+                                src={jobDetail[0].avatar}
                                 alt=""
                             />
+
                             <div className="ml-2">
-                                <h4 className="text-lg font-bold">Sabrina C</h4>
+                                <h4 className="text-lg font-bold uppercase">
+                                    {jobDetail[0].tenNguoiTao}
+                                </h4>
                                 <div className="flex items-center mt-2">
                                     <IconStar color="orange" />
                                     <span className="font-semibold text-sm">
-                                        4.9 {"(1,999 rating)"}
+                                        {saoCongViec} {`(${danhGia} rating)`}
                                     </span>
                                 </div>
                             </div>
@@ -50,7 +81,7 @@ const JobDetail = () => {
                                     </span>
                                 </div>
                                 <p className="text-sm text-gray-500 mt-2">
-                                    9 orders in queue
+                                    {nguoiTao} orders in queue
                                 </p>
                             </div>
                         </div>
@@ -105,7 +136,7 @@ const JobDetail = () => {
                                 className="mySwiper2"
                             >
                                 <SwiperSlide>
-                                    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                                    <img src={hinhAnh} />
                                 </SwiperSlide>
                                 <SwiperSlide>
                                     <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
@@ -146,7 +177,7 @@ const JobDetail = () => {
                                 className="mySwiper"
                             >
                                 <SwiperSlide>
-                                    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                                    <img src={hinhAnh} />
                                 </SwiperSlide>
                                 <SwiperSlide>
                                     <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
@@ -181,16 +212,7 @@ const JobDetail = () => {
                             <h3 className="text-2xl mb-2 font-bold">
                                 About this gig
                             </h3>
-                            <p>
-                                Ready to Make Your Brand Shine? With our
-                                service, you'll get a professional custom logo
-                                that will make your business stand out from the
-                                rest. We specialize in creating Modern
-                                Typography logos. Whether you're seeking a sleek
-                                and modern design or a more artistic and
-                                expressive approach, our service can bring your
-                                vision to life.
-                            </p>
+                            <p>{moTa}</p>
                             <div className="py-3">
                                 <h4 className="text-xl font-semibold">
                                     Why choose us?
@@ -240,7 +262,7 @@ const JobDetail = () => {
                         </div>
                     </div>
                     <div className="right-content w-4/12 mt-8">
-                        <TabCustom />
+                        <TabCustom shortDes={moTaNgan} giaTien={giaTien} />
                         <TabCustom />
                     </div>
                 </div>

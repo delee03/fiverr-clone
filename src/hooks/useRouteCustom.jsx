@@ -37,7 +37,7 @@ const useRouteCustom = () => {
                     element: <ListCongViec />,
                 },
                 {
-                    path: "/chi-tiet-cong-viec",
+                    path: "/chi-tiet-cong-viec/:id",
                     element: <JobDetail />,
                 },
             ],
