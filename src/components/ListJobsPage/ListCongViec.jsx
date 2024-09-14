@@ -59,7 +59,7 @@ const ListCongViec = () => {
         ?.tenChiTietLoai
         ? valueCongViecTheoChiTietLoai?.layCongViecTheoChiTietLoai[0]
               ?.tenChiTietLoai
-        : "All Job Fiverr";
+        : "All Job at Fiverr";
 
     //viest 1 hàm check state khi hover dropdown thay đổi thì truyền nó lên LIstCongViec từ NavMenuCV
     //sau đó nếu state thay đổi đó gửi ID mã chi tiết công việc đó lên ListCongViec dispatch lấy dữ liệu từ layCongViecTheoChiTietLoai service về render ra là xong

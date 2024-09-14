@@ -13,24 +13,38 @@ import "./jobDetail.scss";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { useParams } from "react-router-dom";
 import { chiTietCongViecService } from "../../service/chiTietCongViec.service";
+import SpinnerCustom from "../Custom/SpinnerCustom";
+import NavCTCV from "../NavBar/NavCTCV";
 
 const JobDetail = () => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
-    const [jobDetail, setJobDetail] = useState({});
+    const [jobDetail, setJobDetail] = useState([]);
     const params = useParams();
-    console.log(params);
+    const [Loading, setLoading] = useState(true);
+    // console.log(params);
+    const [CheckHover, setCheckHover] = useState(null);
 
+    const handleCheckHoverDropdown = (IDChiTietLoai) => {
+        setCheckHover(IDChiTietLoai);
+        dispatch(getCVTheoCTLoaiApi(IDChiTietLoai));
+    };
     useEffect(() => {
-        chiTietCongViecService
-            .getCTCongViec(params.id)
-            .then((res) => {
-                console.log(res);
-                setJobDetail(res.data.content);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        setLoading(true);
+        setTimeout(() => {
+            chiTietCongViecService
+                .getCTCongViec(params.id)
+                .then((res) => {
+                    //console.log(res.data.content);
+                    setJobDetail(res.data.content);
+                    setLoading(false);
+                })
+                .catch((error) => {
+                    console.log(error);
+                    setLoading(false);
+                });
+        }, 1000);
     }, [params.id]);
+
     console.log(jobDetail);
     const {
         hinhAnh,
@@ -41,31 +55,52 @@ const JobDetail = () => {
         giaTien,
         moTa,
         moTaNgan,
-    } = jobDetail[0]?.congViec;
+    } = jobDetail[0] ? jobDetail[0]?.congViec : {};
+    //có 2 cách fix lỗi :  Cannot destructure property 'hinhAnh' of '(intermediate value)' as it is undefined.
+    //nhớ clg kiểm tra xem dữ liệu trả về là gì trước khi gọi
     return (
         <section>
-            <div className="container mt-8">
+            {Loading && (
+                <SpinnerCustom
+                    title={"Đợi chút nhé đang lấy dữ liệu"}
+                ></SpinnerCustom>
+            )}
+            <div className="container mt-4">
+                <NavCTCV handleCheck={handleCheckHoverDropdown} />
                 <div className="job-content flex pb-96">
                     <div className="left-content w-8/12">
-                        <BreadCrumCustom title={"Graphic design"} />
+                        <BreadCrumCustom
+                            title={jobDetail[0]?.tenNhomChiTietLoai}
+                            tenLoai={"/" + jobDetail[0]?.tenLoaiCongViec}
+                            tenNhom={"/" + jobDetail[0]?.tenNhomChiTietLoai}
+                            tenChiTietLoai={"/" + jobDetail[0]?.tenChiTietLoai}
+                            desc={jobDetail[0]?.congViec.moTaNgan}
+                        />
                         <h1 className="text-3xl font-semibold ">
                             {tenCongViec}
                         </h1>
                         <div className="flex items-center gap-2 mt-6 py-3 border-b-2 border-b-slate-50">
                             <img
                                 className="w-14 h-14 rounded-full mt-1"
-                                src={jobDetail[0].avatar}
+                                src={
+                                    jobDetail[0]?.avatar
+                                        ? jobDetail[0].avatar
+                                        : ""
+                                }
                                 alt=""
                             />
 
                             <div className="ml-2">
                                 <h4 className="text-lg font-bold uppercase">
-                                    {jobDetail[0].tenNguoiTao}
+                                    {jobDetail[0]?.tenNguoiTao
+                                        ? jobDetail[0].tenNguoiTao
+                                        : ""}
                                 </h4>
                                 <div className="flex items-center mt-2">
                                     <IconStar color="orange" />
                                     <span className="font-semibold text-sm">
-                                        {saoCongViec} {`(${danhGia} rating)`}
+                                        {saoCongViec}
+                                        {`(${danhGia} rating)`}
                                     </span>
                                 </div>
                             </div>
@@ -136,7 +171,10 @@ const JobDetail = () => {
                                 className="mySwiper2"
                             >
                                 <SwiperSlide>
-                                    <img src={hinhAnh} />
+                                    <img
+                                        src={hinhAnh}
+                                        className="!w-full object-cover"
+                                    />
                                 </SwiperSlide>
                                 <SwiperSlide>
                                     <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
@@ -212,7 +250,7 @@ const JobDetail = () => {
                             <h3 className="text-2xl mb-2 font-bold">
                                 About this gig
                             </h3>
-                            <p>{moTa}</p>
+                            <p>{moTa ? moTa : ""}</p>
                             <div className="py-3">
                                 <h4 className="text-xl font-semibold">
                                     Why choose us?
@@ -262,8 +300,10 @@ const JobDetail = () => {
                         </div>
                     </div>
                     <div className="right-content w-4/12 mt-8">
-                        <TabCustom shortDes={moTaNgan} giaTien={giaTien} />
-                        <TabCustom />
+                        <TabCustom
+                            shortDes={moTaNgan || "dess"}
+                            giaTien={giaTien || "1000"}
+                        />
                     </div>
                 </div>
             </div>

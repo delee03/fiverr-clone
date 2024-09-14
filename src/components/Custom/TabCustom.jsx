@@ -4,7 +4,7 @@ const onChange = (key) => {
     console.log(key);
 };
 
-const TabCustom = ({ giaTien, shortDes }) => {
+const TabCustom = ({ giaTien = 1000, shortDes = "Dess" }) => {
     const items = [
         {
             key: "1",
@@ -13,9 +13,9 @@ const TabCustom = ({ giaTien, shortDes }) => {
             ), //có thể truyền 1 React.Node
             children: (
                 <div className="mx-auto w-11/12 py-3">
-                    <h2 className="font-semibold text-3xl">${giaTien}</h2>
+                    <h2 className="font-semibold text-3xl">{giaTien - 10}</h2>
 
-                    <p className="mt-4 text-lg">{shortDes}</p>
+                    <p className="mt-4 text-base text-gray-600">{shortDes}</p>
                     <span className="my-2 mt-2 block  font-bold text-base">
                         What's Included
                     </span>
@@ -42,7 +42,7 @@ const TabCustom = ({ giaTien, shortDes }) => {
                 <div className="mx-auto w-11/12 py-3">
                     <h2 className="font-semibold text-3xl">${giaTien}</h2>
 
-                    <p className="mt-4 text-lg">{shortDes}</p>
+                    <p className="mt-4 text-base text-gray-600">{shortDes}</p>
                     <span className="my-2 mt-2 block  font-bold text-base">
                         What's Included
                     </span>
@@ -67,11 +67,11 @@ const TabCustom = ({ giaTien, shortDes }) => {
             ), //có thể truyền 1 React.Node
             children: (
                 <div className="mx-auto w-11/12 py-3">
-                    <h2 className="font-semibold text-3xl">$50</h2>
+                    <h2 className="font-semibold text-3xl">{giaTien + 15}</h2>
                     <p className="text-lg">
                         Save up to 20% with Subscribe to Save
                     </p>
-                    <p className="mt-4 text-lg">{shortDes}</p>
+                    <p className="mt-4 text-base text-gray-600">{shortDes}</p>
                     <span className="my-2 block mt-2  font-bold text-base">
                         What's Included
                     </span>
