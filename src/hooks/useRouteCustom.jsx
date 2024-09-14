@@ -33,7 +33,7 @@ const useRouteCustom = () => {
                 },
                 {
                     // index: true,
-                    path: path.listcv,
+                    path: "/cong-viec",
                     element: <ListCongViec />,
                 },
                 {
