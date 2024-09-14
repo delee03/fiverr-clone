@@ -4,7 +4,7 @@ import { getMenuLoaiCongViecApi } from "../../redux/layMenuLoaiCongViecSlice";
 import { Dropdown, Menu } from "antd";
 import { Link } from "react-router-dom";
 
-const NavCTCV = ({ handleCheck }) => {
+const NavCTCV = () => {
     const [hoveredItemId, setHoveredItemId] = useState(null); // Quản lý ID của mục đang được hover
     const dsMenuLoaiCV = useSelector(
         (state) => state.menuCongViec.arrMenuLoaiCV
@@ -51,7 +51,6 @@ const NavCTCV = ({ handleCheck }) => {
                         {nhomItem?.dsChiTietLoai?.map((item, subIndex) => (
                             <li
                                 key={subIndex}
-                                onClick={() => handleCheck(item.id)}
                                 className="mb-1 py-2 w-full h-full px-1 text-base rounded-lg text-gray-500 hover:!text-black"
                             >
                                 <Link to={"/cong-viec"}>

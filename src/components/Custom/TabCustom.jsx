@@ -13,7 +13,7 @@ const TabCustom = ({ giaTien = 1000, shortDes = "Dess" }) => {
             ), //có thể truyền 1 React.Node
             children: (
                 <div className="mx-auto w-11/12 py-3">
-                    <h2 className="font-semibold text-3xl">{giaTien - 10}</h2>
+                    <h2 className="font-semibold text-3xl">${giaTien - 10}</h2>
 
                     <p className="mt-4 text-base text-gray-600">{shortDes}</p>
                     <span className="my-2 mt-2 block  font-bold text-base">
@@ -67,7 +67,7 @@ const TabCustom = ({ giaTien = 1000, shortDes = "Dess" }) => {
             ), //có thể truyền 1 React.Node
             children: (
                 <div className="mx-auto w-11/12 py-3">
-                    <h2 className="font-semibold text-3xl">{giaTien + 15}</h2>
+                    <h2 className="font-semibold text-3xl">${giaTien + 15}</h2>
                     <p className="text-lg">
                         Save up to 20% with Subscribe to Save
                     </p>

@@ -7,7 +7,13 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import BreadCrumCustom from "../Custom/BreadCrumCustom";
 import TabCustom from "../Custom/TabCustom";
-import { IconStar, IconStar4, IconQuestion } from "../Icon/IconStorage";
+import {
+    IconStar,
+    IconStar4,
+    IconQuestion,
+    IconLike,
+    IconDisLike,
+} from "../Icon/IconStorage";
 import "./jobDetail.scss";
 // import required modules
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
@@ -22,12 +28,8 @@ const JobDetail = () => {
     const params = useParams();
     const [Loading, setLoading] = useState(true);
     // console.log(params);
-    const [CheckHover, setCheckHover] = useState(null);
+    const [jobComment, setJobComment] = useState([]);
 
-    const handleCheckHoverDropdown = (IDChiTietLoai) => {
-        setCheckHover(IDChiTietLoai);
-        dispatch(getCVTheoCTLoaiApi(IDChiTietLoai));
-    };
     useEffect(() => {
         setLoading(true);
         setTimeout(() => {
@@ -42,10 +44,20 @@ const JobDetail = () => {
                     console.log(error);
                     setLoading(false);
                 });
+            chiTietCongViecService
+                .getBinhLuanCongViec(params.id)
+                .then((res) => {
+                    console.log(res);
+                    setJobComment(res.data.content);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
         }, 1000);
     }, [params.id]);
 
-    console.log(jobDetail);
+    // console.log(jobDetail);
+    console.log(jobComment);
     const {
         hinhAnh,
         tenCongViec,
@@ -66,8 +78,8 @@ const JobDetail = () => {
                 ></SpinnerCustom>
             )}
             <div className="container mt-4">
-                <NavCTCV handleCheck={handleCheckHoverDropdown} />
-                <div className="job-content flex pb-96">
+                <NavCTCV />
+                <div className="job-content flex pb-10">
                     <div className="left-content w-8/12">
                         <BreadCrumCustom
                             title={jobDetail[0]?.tenNhomChiTietLoai}
@@ -297,6 +309,40 @@ const JobDetail = () => {
                                 </p>
                             </div>
                             <p>Thank you for considering our services!</p>
+                        </div>
+                        <div className="layBinhLuan mt-6 border-t-2 border-gray-500">
+                            <h2 className="font-semibold text-3xl mt-3">
+                                Comment <span>({jobComment.length})</span>
+                            </h2>
+                            {jobComment.map((item, index) => (
+                                <div className="item py-5 mt-2">
+                                    <div className="flex items-center gap-3">
+                                        <img
+                                            src={item.avatar}
+                                            className="rounded-full w-12 h-12"
+                                            alt=""
+                                        />
+                                        <h4>{item.tenNguoiBinhLuan}</h4>
+                                        <div className="flex items-center">
+                                            <IconStar color={"orange"} />
+                                            <span>{item.saoBinhLuan}</span>
+                                        </div>
+                                    </div>
+                                    <p className="py-2">{item.noiDung}</p>
+                                    <p className="text-gray-500 mb-2">
+                                        Published: {item.ngayBinhLuan}
+                                    </p>
+                                    <div className="flex items-center gap-4">
+                                        <div className="flex items-center gap-1">
+                                            <IconLike /> <span>Helpful</span>
+                                        </div>
+                                        <div className="flex items-center gap-1">
+                                            <IconDisLike />{" "}
+                                            <span>Not Helpful</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
                     <div className="right-content w-4/12 mt-8">
