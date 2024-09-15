@@ -55,3 +55,15 @@
         }
     }
 }
+
+@media screen and (min-width:768px) and (max-width:1024px) {
+    .finger_section .container .finger .finger_list h2 {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .finger_section .container .finger .finger_list h2 {
+        font-size: 40px;
+    }
+}

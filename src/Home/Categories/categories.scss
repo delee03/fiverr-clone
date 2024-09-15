@@ -2,29 +2,48 @@
     .container {
         padding-bottom: 0;
         padding-top: 0;
+        @media screen and (min-width: 1024px){
+            max-width: unset;
+        }
 
         .categories {
-            margin-bottom: 40px;
-
+            margin: 0 auto 40px;
+            width: calc(100% - 40px);
             .categories_skill {
-                display: grid;
-                gap: 0;
-                grid-auto-flow: column;
-                grid-template-columns: auto;
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                // max-width: 1361px;
+                // display: grid;
+                // gap: 0;
+                // grid-auto-flow: column;
+                // grid-template-columns: auto;
                 padding-top: 6px;
 
                 .categories_list {
-                    padding: 6px;
-                    display: flex;
-                    justify-content: center;
-                    
-                    
+                    // padding: 6px;    
+                    width: calc(11.11% - 22px);
+                    @media screen and (min-width:768px) and (max-width:1300px){
+                        width: calc(11.11% - 8.8px);
+                    }
+                    @media screen and (max-width:1023px){
+                        width: calc(33.33% - 13.33px);
+                        margin-bottom: 20px;
+                    }
+                    // &:nth-child(9) {
+                    //     // display: none;
+                    // }
                     a {
+                        @media screen and (min-width:768px) and (max-width:1023px){
+                            text-align: center; 
+                            justify-content: center;
+                        }
                         display: flex;
                         flex-direction: column;
-                        gap: 25px;
-                        height: 129px;
-                        width: 129px;
+                        // gap: 25px;
+                        // height: 129px;
+                        
                         background: #fff;
                         border: 1px solid #fff;
                         border-radius: 16px;
@@ -47,4 +66,66 @@
         }
     }
 
+    
+    @mixin PC {
+        @media (min-width: 768px) {
+          @content;
+        }
+      }
+      
+      @mixin SP {
+        @media (max-width: 767px) {
+          @content;
+        }
+      }
+      @mixin PC {
+        @media (min-width: 768px) {
+          @content;
+        }
+      }
+      
+      @mixin SP {
+        @media (max-width: 767px) {
+          @content;
+        }
+      }
+      @mixin mq($args...) {
+        $media-type: "only screen";
+        $media-type-key: "media-type";
+        $args: keywords($args);
+        $expr: "";
+      
+        @if map-has-key($args, $media-type-key) {
+          $media-type: map-get($args, $media-type-key);
+          $args: map-remove($args, $media-type-key);
+        }
+      
+        @each $key, $value in $args {
+          @if $value {
+            $expr: "#{$expr} and (#{$key}: #{$value})";
+          }
+        }
+      
+       
+      }
+      
+      // --- screen ------------------------------------------------------------------
+      
+      @mixin screen($min, $max, $orientation: false) {
+        @include mq($min-width: $min, $max-width: $max, $orientation: $orientation) {
+          @content;
+        }
+      }
+      
+      @mixin max-screen($max) {
+        @include mq($max-width: $max) {
+          @content;
+        }
+      }
+      
+      @mixin min-screen($min) {
+        @include mq($min-width: $min) {
+          @content;
+        }
+      }
     

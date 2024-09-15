@@ -4,7 +4,7 @@
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    border-radius: 16px;
+    // border-radius: 16px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -90,7 +90,9 @@
         gap: 40px;
         position: absolute;
         bottom: 25px;
-        right: 320px;;
+        right: 50%;
+        transform: translateX(50%);
+        width: 100%;
         
         span {
             color: #fff;
@@ -109,7 +111,23 @@
     
     }
 
-
+@media only screen and (max-width:500px) {
+    .container .img_hero {
+        background: linear-gradient(180deg, #003912 36.72%, #19aa64 141.43%);
+    .title_hero{
+        h1 {
+            font-size: 50px;
+         }
+         .search_hero {
+            width: 90%;
+         }
+    }
+    .trust_hero {
+        display: none;
+    }
+    
+    }
+}
    
 
 

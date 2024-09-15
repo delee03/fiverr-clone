@@ -42,7 +42,7 @@ const Hero = () => {
       <div className="container">
         <div className="img_hero">
           <div className="title_hero">
-            <h1>
+            <h1 className="">
               Find the right
               <em className="title_freelancer"> freelancer </em> <br />
               service, right away

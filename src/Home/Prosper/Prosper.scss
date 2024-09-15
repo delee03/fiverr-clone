@@ -2,7 +2,7 @@
     margin-top: 50px;
 
     .container {
-
+        width: calc(100% - 40px);
         .prosper {
 
             h2 {
@@ -13,11 +13,13 @@
             .prosper_search {
                 display: flex;
                 align-items: center;
-                
-                
-                gap: 100px;
+                justify-content: space-between;
+                flex-wrap: wrap;
                 margin-top: 50px;
-
+                li {
+                    width: calc(25% - 15px);
+                    max-width: 260px;
+                }
                 .prosper_list {
 
                     .prosper_it {
@@ -35,6 +37,31 @@
                     }
                 }
             }
+        }
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+    .prosper_section .container .prosper .prosper_search li{
+        width: calc(50% - 10px);
+        max-width: 350px;
+        margin-bottom: 50px;
+    }
+}
+@media only screen  and (max-width: 767px){
+    .prosper_section .container .prosper .prosper_search .prosper_list{
+        width: 100%;
+        margin-bottom: 30px;
+        > div{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            h3{
+                padding-left: 15px;
+                font-size: 15px;
+            }
+        }
+        >p {
+            font-size: 14px;
         }
     }
 }

@@ -218,4 +218,14 @@
   .my-mfp-zoom-in.mfp-removing.mfp-bg {
     opacity: 0;
   }
-
+@media only screen and (max-width:1024px) {
+  .container .about .about_carousel .about_list .about_track .track_item .track {
+    flex-wrap: wrap;
+    .about_video, .about_content{
+      width: 100%;
+    }
+    .about_video{
+      margin-bottom: 30px;
+    }
+  }
+}
