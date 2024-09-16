@@ -1,16 +1,3 @@
--Lưu ý cài đặt phiên bản node là v22.2.0
-
-Các thư viện đang sử dụng trong dự án:
-
-<ul>
-    <li>React-Router-Dom (V6);</li>
-     <li>Redux-Toolkit: (or Zustant)</li>
-      <li>Tailwind CSS</li>
-       <li>Axios</li>
-        <li>Formik và Yup</li>
-         <li>Antd</li>
-         <li>SASS</li>
-</ul>
 
 <h2>Division of work</h2>
 
@@ -33,3 +20,17 @@ Các thư viện đang sử dụng trong dự án:
        <li>Manage VCS</li>
 </ul>
 </div>
+
+-Lưu ý cài đặt phiên bản node là v22.2.0
+
+Các thư viện đang sử dụng trong dự án:
+
+<ul>
+    <li>React-Router-Dom (V6);</li>
+     <li>Redux-Toolkit: (or Zustant)</li>
+      <li>Tailwind CSS</li>
+       <li>Axios</li>
+        <li>Formik và Yup</li>
+         <li>Antd</li>
+         <li>SASS</li>
+</ul>

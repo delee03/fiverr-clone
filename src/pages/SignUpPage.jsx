@@ -57,15 +57,15 @@ const SignUpPage = () => {
                 .signUp(values)
                 .then((res) => {
                     //console.log(res.data.content);
-                    setLocalStorage("userInfo", res.data.content);
+                    // setLocalStorage("userInfo", res.data.content);
                     showNotification(
-                        "Đăng kí thành công, đang chuyển hướng về trang chủ",
+                        "Đăng kí thành công, hãy đăng nhập để sử dụng nhé",
                         "success",
                         3000
                     );
-                    dispatch(getInfoUser(res.data.content));
+                    // dispatch(getInfoUser(res.data.content));
                     setTimeout(() => {
-                        navigate(path.homepage);
+                        navigate(path.signin);
                     }, 2000);
                     resetForm();
                 })
