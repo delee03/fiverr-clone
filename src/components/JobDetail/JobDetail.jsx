@@ -32,28 +32,43 @@ const JobDetail = () => {
 
     useEffect(() => {
         setLoading(true);
+        const controller = new AbortController();
+        const signal = controller.signal;
+
         setTimeout(() => {
-            chiTietCongViecService
-                .getCTCongViec(params.id)
-                .then((res) => {
+            const fetchData = async () => {
+                try {
+                    const jobRes = await chiTietCongViecService.getCTCongViec(
+                        params.id,
+                        { signal }
+                    );
+
                     //console.log(res.data.content);
-                    setJobDetail(res.data.content);
+                    setJobDetail(jobRes.data.content);
+
+                    const cmtRes =
+                        await chiTietCongViecService.getBinhLuanCongViec(
+                            params.id,
+                            { signal }
+                        );
+                    setJobComment(cmtRes.data.content);
                     setLoading(false);
-                })
-                .catch((error) => {
-                    console.log(error);
-                    setLoading(false);
-                });
-            chiTietCongViecService
-                .getBinhLuanCongViec(params.id)
-                .then((res) => {
-                    console.log(res);
-                    setJobComment(res.data.content);
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
+                } catch (error) {
+                    if (error.name === "AbortError") {
+                        console.log("Fetch aborted");
+                    } else {
+                        console.log(error);
+                        setLoading(false);
+                    }
+                }
+            };
+            fetchData();
         }, 1000);
+
+        // Cleanup: Hủy request khi component unmount
+        return () => {
+            controller.abort();
+        };
     }, [params.id]);
 
     // console.log(jobDetail);
